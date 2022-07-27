@@ -1,0 +1,54 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 95%;
+    margin-inline: auto;
+    padding: 1em;
+}
+
+.menu-icon {
+    width: 1.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1em;
+}
+
+.intro {
+    min-height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro__title {
+    text-align: center;
+}
+
+.intro__text {
+    width: 30ch;
+    text-align: center;
+    line-height: 1;
+}
+
+.footer {
+    padding: 3em;
+    margin-top: 2em;
+    background-color: #333;
+    color: #FFF;
+}
