@@ -4,57 +4,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Store</title>
+    <title>Black coffee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;500;600&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header class="header">
-        <h1 class="header__title">The Coffee Store</h1>
-        <img src="./img/cart-shopping-solid.svg" alt="" class="menu-icon">
+    <header>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#" class="nav__link">inicio</a></li>
+                <li class="nav__item"><a href="./pages/products.html" class="nav__link">productos</a></li>
+                <li class="nav__item"><a href="#" class="nav__link">contacto</a></li>
+            </ul>
+            <a href="" class="nav__icon search"><img src="./icons/lupa.svg" alt="Buscar"></a>
+            <a href="" class="nav__icon cart"><img src="./icons/cart.svg" alt="Carrito"></a>
+        </nav>
     </header>
-
     <main>
-        <section class="intro">
+        <section class="hero">
+                <!-- <img src="./img/hero.png" alt="Café con latte art sobre un libro blanco" class="hero__img"> -->
+                <h2 class="slogan">Enjoy the best coffee in the comfort of your home.</h2>
+                <img src="./img/logo-white.png" alt="Blackcoffee logo" class="logo">
+        </section>
+        <section class="about-us container row">
+                <div class="about__col">
+                    <h2 class="about__title">Nosotros</h2>
+                    <p class="about__body">Somos tostadores de café de alta calidad, utilizamos perfiles de tueste que garantizan las características de un producto óptimo y logran la mejor calidad en cada grano. Nuestra misión es que puedas disfrutar del mejor café en la comodidad de tu hogar y con tu método favorito.</p>
+                </div>
+                <img class="about__img" src="./img/granos.png" alt="Granos de café en el aire">
+        </section>
+        <section class="gallery">
             <div class="container">
-                <div>
-                    <h2 class="intro__title">The Coffee Store</h2>
-                    <p class="intro__text">El mejor café de especialidad en la comodidad de tu casa</p>
+                <div class="gallery__grid">
+                    <img class="gallery__img" src="./img/1.png" alt="Café de especialidad">
+                    <img class="gallery__img" src="./img/2.png" alt="Amigos brindando con café">
+                    <img class="gallery__img" src="./img/3.png" alt="Taza de café en la cama">
+                    <h2 class="gallery__title">Calidad. Aroma. Sabor. Buenos momentos.</h2>
                 </div>
             </div>
         </section>
-
-        <section class="products">
-            <div class="container row">
-                <div class="col">
-                    <div class="product">
-                        <img src="./img/product.jpg" alt="Café molido para espresso. Variedad Colombia">
-                        <h3>Café de Colombia molido para espresso</h3>
-                    </div>
-                    <div class="product">
-                        <img src="./img/product.jpg" alt="Café molido para espresso. Variedad Brasil">
-                        <h3>Café de Brasil molido para espresso</h3>
-                    </div>
+        <section class="products-intro container">
+            <div class="row">
+                <div class="intro-product">
+                    <img class="intro-product__img" src="./img/productos/Blend-grano.png" alt="Bolsa de café de especialidad">
+                    <h4 class="intro-product__title">Blend especial</h4>
+                    <p class="intro-product__body">Café de intensidad media con notas de caña de azúcar, caramelo y avellanas. Acidez media y gran cuerpo.</p>
                 </div>
-                <div class="col">
-                    <div class="product">
-                        <img src="./img/product.jpg" alt="Café molido para espresso. Variedad Perú">
-                        <h3>Café de Perú molido para espresso</h3>
-                    </div>
-                    <div class="product">
-                        <img src="./img/product.jpg" alt="Café molido para espresso. Variedad Etiopía">
-                        <h3>Café de Etiopía molido para espresso</h3>
-                    </div>
+                <div class="intro-product">
+                    <img class="intro-product__img" src="./img/productos/Brasil-moka.png" alt="Bolsa de café de especialidad">
+                    <h4 class="intro-product__title">Brasil</h4>
+                    <p class="intro-product__body">Café intenso con notas de cacao amargo y frutos secos como avellana. Acidez media con retrogusto persistente y gran cuerpo.</p>
+                </div>
+                <div class="intro-product intro-last-product">
+                    <img class="intro-product__img" src="./img/productos/Colombia-V60.png" alt="Bolsa de café de especialidad">
+                    <h4 class="intro-product__title">Colombia</h4>
+                    <p class="intro-product__body">Café de intensidad media con notas frutales, acidez media alta cítrica y brillante, cuerpo medio.</p>
+                </div>
+            </div>
+            <h3 class="all-products">
+                <a class="btn btn--outline" href="./pages/products.html">Ver todos los productos
+                    <img src="./icons/arrow.svg" alt="" class="all-products__arrow">
+                </a>
+            </h3>
+        </section>
+        <section class="methods">
+            <div class="container">
+                <h2 class="methods__title">Encontrá el café ideal para tu cafetera</h2>
+                <div class="methods__icons">
+                    <img class="methods__icon" src="./img/metodos/metodo-moka.svg" alt="Moka, cafetera italiana">
+                    <img class="methods__icon" src="./img/metodos/metodo-chemex.svg" alt="Chemex">
+                    <img class="methods__icon" src="./img/metodos/metodo-prensa.svg" alt="Prensa francesa">
+                    <img class="methods__icon" src="./img/metodos/metodo-espresso.svg" alt="Espresso">
+                    <img class="methods__icon" src="./img/metodos/metodo-v60.svg" alt="V60">
+                    <img class="methods__icon" src="./img/metodos/metodo-capsulas.svg" alt="Capsulas recargables">
+                    <img class="methods__icon" src="./img/metodos/metodo-aero.svg" alt="Aeropress">
+                    <img class="methods__icon" src="./img/metodos/metodo-filtro.svg" alt="Cafetera de filtro">
                 </div>
             </div>
         </section>
     </main>
-
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <h4>Redes sociales</h4>
+            <div class="contact">
+                <h3 class="contact__title">Contacto</h3>
+                <div class="contact__icons">
+                    <a href="" class="contact__icon"><img src="./icons/fb.svg" alt="Facebook"></a>
+                    <a href="" class="contact__icon"><img src="./icons/mail.svg" alt="E-mail"></a>
+                    <a href="" class="contact__icon"><img src="./icons/ig.svg" alt="Instagram"></a>
+                </div>
+            </div>
+            <p class="footer__credits">Este sitio fue diseñado por Talia Laborde y desarrollado por Gonzalo Coradello.</p>
+            <img src="./img/logo-white.png" alt="Blackcoffee logo" class="logo">
         </div>
     </footer>
-
-    <script src="./js/main.js"></script>
 </body>
 </html>
