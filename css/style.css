@@ -436,7 +436,8 @@ section + section {
 }
 
 .methods__icon {
-    max-width: 50%;
+    object-fit: contain;
+    height: 50%;
 }
 
 .contact {
@@ -465,7 +466,7 @@ section + section {
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 60px) {
     
     :root {
         --fs-100: 0.5625rem;
