@@ -61,6 +61,12 @@
 
 
 /* Tipografía */
+body {
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-normal);
+    font-size: var(--fs-300);
+}
+
 .nav,
 .about__title,
 .gallery__title,
@@ -88,7 +94,7 @@
 
 .slogan {
     font-size: var(--fs-600);
-    font-weight: var(--fw-thin);
+    font-weight: var(--fw-light);
 }
 
 .about__title {
@@ -99,7 +105,7 @@
 
 .about__body {
     font-size: var(--fs-500);
-    font-weight: var(--fw-thin);
+    font-weight: var(--fw-light);
 }
 
 .gallery__title {
@@ -217,6 +223,11 @@
     padding: 0;
 }
 
+body {
+    background-color: var(--bg-primary);
+    color: var(--clr-primary);
+}
+
 img {
     max-width: 100%;
     object-fit: cover;
@@ -233,14 +244,6 @@ a {
 
 p {
     line-height: 1.6;
-}
-
-body {
-    font-family: var(--ff-primary);
-    font-weight: var(--fw-normal);
-    font-size: var(--fs-300);
-    background-color: var(--bg-primary);
-    color: var(--clr-primary);
 }
 
 .container {
@@ -469,29 +472,20 @@ section + section {
 @media screen and (max-width: 60px) {
     
     :root {
-        --fs-100: 0.5625rem;
-        /* (9px) */
-
-        --fs-200: 0.75rem;
+        --fs-300: 0.75rem; 
         /* (12px) */
 
-        --fs-250: 0.9375rem;
-        /* (15px) */
-
-        --fs-300: 0.5625rem; 
-        /* (9px) */
-
-        --fs-350: 1.25rem;
-        /* (20px) */
-
-        --fs-400: 0.6rem;
-        /* (9.6px) */
-
-        --fs-500: 0.75rem;
+        --fs-350: 0.75rem;
         /* (12px) */
+
+        --fs-400: 0.75rem;
+        /* (12px) */
+
+        --fs-500: 0.8125rem;
+        /* (13px) */
 
         --fs-600: 1rem;
-        /* 16px */
+        /* (16px) */
 
         --fs-700: 1rem;
         /* (16px) */
@@ -501,5 +495,9 @@ section + section {
 
         --fs-900: 1.08rem;
         /* (17.3px) */
+    }
+
+    .all-products {
+        font-size: 0.9rem;
     }
 }
