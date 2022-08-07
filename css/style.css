@@ -469,7 +469,7 @@ section + section {
 
 
 
-@media screen and (max-width: 60px) {
+@media screen and (max-width: 600px) {
     
     :root {
         --fs-300: 0.75rem; 
