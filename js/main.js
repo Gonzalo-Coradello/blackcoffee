@@ -14,11 +14,13 @@ const carrito = [];
 // Clase constructora + métodos de objetos
 // En el método agregarAlCarrito se utilizan dos funciones de orden superior, reduce y map
 class Producto {
-    constructor (nombre, tipo, info, precio) {
-        this.nombre = nombre
+    constructor (nombre, tipo, cantidad, info, precio, foto) {
+        this.nombre = nombre;
         this.tipo = tipo;
+        this.cantidad = cantidad;
         this.info = info;
         this.precio = precio;
+        this.foto = foto;
     }
 
     agregarAlCarrito () {
@@ -35,16 +37,26 @@ class Producto {
 
 // Productos (objects) y variables
 
-productos.push(new Producto ("Café Brasil", "café", "Café intenso con notas de cacao amargo y frutos secos como avellana. Acidez media con retrogusto persistente y gran cuerpo.", 1600));
-productos.push(new Producto ("Café Colombia", "café", "Café de intensidad media con notas frutales, acidez media alta cítrica y brillante, y cuerpo medio.", 2050));
-productos.push(new Producto ("Café Perú", "café", "Café de intensidad media con notas a cacao, ciruela y leves notas cítricas. Acidez media alta.", 2200));
-productos.push(new Producto ("Café Etiopía", "café", "Café de baja intensidad, acidez y cuerpo medio. Aromas florales con notas de pasas de uva, frutos secos, mermelada y jazmín.", 2520));
+productos.push(new Producto ("Brasil", "Café", 250, "Café intenso con notas de cacao amargo y frutos secos como avellana. Acidez media con retrogusto persistente y gran cuerpo.", 1600, "../img/productos/brasil-moka.png"));
+productos.push(new Producto ("Café Colombia", "Café", 250, "Café de intensidad media con notas frutales, acidez media alta cítrica y brillante, y cuerpo medio.", 2050, "../img/productos/colombia-v60.png"));
+productos.push(new Producto ("Perú", "Café", 250, "Café de intensidad media con notas a cacao, ciruela y leves notas cítricas. Acidez media alta.", 2200, "../img/productos/peru-filtro.png"));
+productos.push(new Producto ("Etiopía", "Café", 250, "Café de baja intensidad, acidez y cuerpo medio. Aromas florales con notas de pasas de uva, frutos secos, mermelada y jazmín.", 2520, "../img/productos/etiopia-chemex.png"));
+productos.push(new Producto ("Blend Especial", "Café", 250, "Café de intensidad media con notas de caña de azúcar, caramelo y avellanas. Acidez media y gran cuerpo", 3200, "../img/productos/blend-grano.png"));
+productos.push(new Producto ("Kenia", "Café", 250, "Café de acidez media baja y cuerpo sedoso, con aromas florales y notas de vainilla, fresas, té negro y jazmín", 2830, "../img/productos/kenia-v60.png"));
+
+productos.push(new Producto ("Cookies", "Patisserie", 5, "Tradicionales cookies de vainilla con irresistibles chips de chocolate.", 610, "../img/productos/cookie.png"));
+productos.push(new Producto ("Mini cookies de limón", "Patisserie", 35, "Galletitas dulces de limón destinadas a generar una experiencia exquisita con el café.", 440, "../img/productos/galletitas-limon.png"));
+productos.push(new Producto ("Waffle belga", "Patisserie", 2, "Waffles estilo belga. Calentalos 2 minutos en tostadora y disfrutalos con queso crema, miel, arándanos o como más te guste.", 440, "../img/productos/waffle.png"));
+productos.push(new Producto ("Stroopwafel", "Patisserie", 5, "Barquillo dulce con relleno de caramelo y manteca. Disfrutalos en modo holandés. Colocalos arriba de la taza y esperá 3 minutos para que el vapor del café saborice el barquillo y derrita su relleno de caramelo. Plaisir!", 770, "../img/productos/stroopwafel.png"));
+productos.push(new Producto ("Cuadraditos de limón", "Patisserie", 6, "Galletitas dulces rellenas de una exquisita crema de limón.", 610, "../img/productos/cuadraditos.png"));
+productos.push(new Producto ("Cantuccini de almendras", "Patisserie", 6, "Maridá con un latte esta exquisita tradición italiana repleta de almendras.", 700, "../img/productos/cantuccini.png"));
+
+
 
 let info = "";
-productos[0].mostrarInfo();
-productos[1].mostrarInfo();
-productos[2].mostrarInfo();
-productos[3].mostrarInfo();
+for(prod in productos) {
+    productos[prod].mostrarInfo()
+}
 
 let precioTotal = 0;
 let entrada;
@@ -122,6 +134,8 @@ function calcularPrecioEnvio (){
 
 
 // Menú principal (agregar productos al carrito o ver información)
+
+
 do {mostrarMenu();
     switch (entrada) {
         case "1":
@@ -159,3 +173,66 @@ do {mostrarMenu();
     }
 }
 while (entrada != 6);
+
+
+// =========================================================================== //
+
+// DOM //
+
+const cafe = productos.filter(el => el.tipo === "Café");
+const patisserie = productos.filter(el => el.tipo === "Patisserie");
+const padreCafe = document.querySelector(".products-coffee");
+const padrePatisserie = document.querySelector(".products-patisserie")
+
+for(prod of cafe){
+    const productoDOM = document.createElement("div");
+    productoDOM.className = "product";
+    productoDOM.innerHTML = `<img src="${prod.foto}" alt="${prod.nombre}" class="product__img">
+                            <h4 class="product__title">${prod.nombre}</h4>
+                            <p class="product__body">${prod.info}</p>
+                            <div class="product__molienda row">
+                                <h5 class="molienda">Molienda</h5>
+                                <input class="product__placeholder" type="text" placeholder="Elige una opción">
+                            </div>
+                            <div class="product__unidades row">
+                                <h5 class="unidades">Unidades</h5>
+                                <input class="product__placeholder" type="text" placeholder="Elige una opción">
+                            </div>
+                            <p class="product__precio">$${prod.precio}</p>
+                            <a href="#" class="product__cart btn">Agregar al carrito</a>`
+    padreCafe.append(productoDOM);
+}
+
+for(prod of patisserie){
+    const productoDOM = document.createElement("div");
+    productoDOM.className = "product";
+    productoDOM.innerHTML = `<img src="${prod.foto}" alt="${prod.nombre}" class="product__img">
+                            <h4 class="product__title">${prod.nombre}</h4>
+                            <p class="product__subtitle">x ${prod.cantidad} unidades</p>
+                            <p class="product__body">${prod.info}</p>
+                            <div class="product__unidades">
+                                <h5 class="unidades">Unidades</h5>
+                                <input class="product__placeholder" type="text" placeholder="Elige una opción">
+                            </div>
+                            <p class="product__precio">$${prod.precio}</p>
+                            <a href="#" class="product__cart">Agregar al carrito</a>`
+    padrePatisserie.append(productoDOM);
+}
+
+
+// Eventos
+
+const cart = document.querySelector(".cart-container");
+const cartOverlay = document.querySelector(".cart-overlay");
+const cartIcon = document.querySelector("#cart-icon");
+
+cartIcon.onclick = () => {
+    if(cart.classList.contains("cart-show")) {
+        cart.classList.remove("cart-show");
+        cartOverlay.classList.remove("overlay-visible");
+    }
+    else {
+        cart.classList.add("cart-show");
+        cartOverlay.classList.add("overlay-visible");
+    }
+}
