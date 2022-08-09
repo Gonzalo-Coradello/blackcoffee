@@ -175,9 +175,15 @@ do {mostrarMenu();
 while (entrada != 6);
 
 
+
 // =========================================================================== //
 
 // DOM //
+
+// =========================================================================== //
+
+
+// Generar productos dinámicamente a partir del array (filtrados por tipo de producto)
 
 const cafe = productos.filter(el => el.tipo === "Café");
 const patisserie = productos.filter(el => el.tipo === "Patisserie");
@@ -190,16 +196,18 @@ for(prod of cafe){
     productoDOM.innerHTML = `<img src="${prod.foto}" alt="${prod.nombre}" class="product__img">
                             <h4 class="product__title">${prod.nombre}</h4>
                             <p class="product__body">${prod.info}</p>
-                            <div class="product__molienda row">
-                                <h5 class="molienda">Molienda</h5>
-                                <input class="product__placeholder" type="text" placeholder="Elige una opción">
-                            </div>
-                            <div class="product__unidades row">
-                                <h5 class="unidades">Unidades</h5>
-                                <input class="product__placeholder" type="text" placeholder="Elige una opción">
-                            </div>
-                            <p class="product__precio">$${prod.precio}</p>
-                            <a href="#" class="product__cart btn">Agregar al carrito</a>`
+                            <div class="product__onhover">
+                                <div class="product__molienda row">
+                                    <h5 class="molienda">Molienda</h5>
+                                    <input class="product__placeholder" type="text" placeholder="Elige una opción">
+                                </div>
+                                <div class="product__unidades row">
+                                    <h5 class="unidades">Unidades</h5>
+                                    <input class="product__placeholder" type="text" placeholder="Elige una opción">
+                                </div>
+                                <p class="product__precio">$${prod.precio}</p>
+                                <a href="#" class="product__btn btn">Agregar al carrito</a>
+                            </div>`
     padreCafe.append(productoDOM);
 }
 
@@ -210,17 +218,21 @@ for(prod of patisserie){
                             <h4 class="product__title">${prod.nombre}</h4>
                             <p class="product__subtitle">x ${prod.cantidad} unidades</p>
                             <p class="product__body">${prod.info}</p>
-                            <div class="product__unidades">
-                                <h5 class="unidades">Unidades</h5>
-                                <input class="product__placeholder" type="text" placeholder="Elige una opción">
-                            </div>
-                            <p class="product__precio">$${prod.precio}</p>
-                            <a href="#" class="product__cart">Agregar al carrito</a>`
+                            <div class="product__onhover">
+                                <div class="product__unidades row">
+                                    <h5 class="unidades">Unidades</h5>
+                                    <input class="product__placeholder" type="text" placeholder="Elige una opción">
+                                </div>
+                                <p class="product__precio">$${prod.precio}</p>
+                                <a href="#" class="product__btn btn">Agregar al carrito</a>
+                            </div>`
     padrePatisserie.append(productoDOM);
 }
 
 
 // Eventos
+
+// Abrir y cerrar el carrito al apretar el icono
 
 const cart = document.querySelector(".cart-container");
 const cartOverlay = document.querySelector(".cart-overlay");
@@ -235,4 +247,19 @@ cartIcon.onclick = () => {
         cart.classList.add("cart-show");
         cartOverlay.classList.add("overlay-visible");
     }
+}
+
+
+// Mostrar información para hacer la compra al hacer hover sobre los productos
+
+const productoDOM = document.querySelectorAll(".product")
+const onhover = document.querySelectorAll(".product__onhover");
+
+for(let i = 0; i < productoDOM.length; i++) {
+    productoDOM[i].addEventListener("mouseover", () => {
+        onhover[i].classList.add("product__show");
+        })
+    productoDOM[i].addEventListener("mouseout", () => {
+        onhover[i].classList.remove("product__show");
+        })
 }
