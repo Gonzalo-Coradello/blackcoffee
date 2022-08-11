@@ -38,7 +38,7 @@
     --clr-secondary: #D3D3D3;
     --clr-dark: #232323;
     --bg-primary: #171717;
-    --bg-secondary: rgba(0, 0, 0, 0.25);
+    --bg-secondary: rgba(0, 0, 0, 0.7);
     --bg-card: rgba(211, 211, 211, 0.07);
     --bg-cart: rgba(10, 10, 10, 0.77);
     --bg-cart-secondary: rgba(217, 217, 217, 0.04);
@@ -244,16 +244,24 @@ section + section {
 /* Layout */
 
 .nav {
-    position: absolute;
+    position: fixed;
+    background-color: transparent;
     display: flex;
     width: 100%;
     padding-right: 2rem;
     padding-block: 1rem;
     align-items: center;
+    transition: all 350ms;
 }
 
-.cart {
+.nav-scrolled {
+    background-color: var(--bg-secondary);
+    transition: all 350ms;
+}
+
+.cart-icon {
     margin-left: auto;
+    cursor: pointer;
 }
 
 .nav__list {
@@ -538,6 +546,7 @@ section + section {
 
 /* Carrito */
 
+
 .cart-overlay {
     position: fixed;
     top: 0;
@@ -562,6 +571,13 @@ section + section {
     background-color: var(--bg-cart);
     padding: 2rem;
 
+}
+
+
+.cart__close {
+    font-size: 1.5em;
+    color: var(--clr-primary);
+    cursor: pointer;
 }
 
 .cart-row {
@@ -606,6 +622,15 @@ section + section {
     margin-inline: auto;
 }
 
+.cart-number {
+    font-style: normal;
+}
+
+.subtotal::before,
+.envio::before,
+.precioTotal::before {
+    content: "$";
+}
 
 
 /* Clases para mostrar el carrito y el fondo (se agregan a través de JS) */
@@ -616,10 +641,6 @@ section + section {
 
 .overlay-visible {
     visibility: visible;
-}
-
-#cart-icon {
-    z-index: 50;
 }
 
 @media screen and (min-width: 600px){
@@ -653,19 +674,29 @@ section + section {
         display: grid;
     }
 
+    .products-hero__img {
+        max-height: 100vh;
+        object-position: bottom center;
+    }
+
     .products-hero__title {
         width: max-content;
     }
 
     .product__onhover {
-        display: none;
-        /* transform: scaleY(0); */
-        transition: all 350ms;
+        /* display: none; */
+        max-height: 0;
+        transform: scaleY(0);
+        opacity: 0;
+        transition: max-height .2s, opacity .7s;
     }
 
     .product__show {
-        display: block;
-        /* transform: scaleY(100%); */
+        /* display: block; */
+        max-height: 100px;
+        transform: scaleY(100%);
+        opacity: 1;
+
     }
 
     /* .product__onhover {

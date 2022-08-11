@@ -19,7 +19,7 @@
                 <li class="nav__item"><a href="#" class="nav__link">productos</a></li>
                 <li class="nav__item"><a href="#" class="nav__link">contacto</a></li>
             </ul>
-            <a href="#" class="nav__icon cart" id="cart-icon"><img src="../icons/cart.svg" alt="Carrito"></a>
+            <i class="nav__icon cart-icon" id="cart-icon"><img src="../icons/cart.svg" alt="Carrito"><span class="cart-number">0</span></i>
         </nav>
     </header>
     <main>
@@ -32,39 +32,17 @@
         <section class="cart">
             <div class="cart-overlay | ">
                 <div class="cart-container | ">
-                    <h2 class="cart__title cart__main-text">Carrito de compras</h2>
+                    <div class="cart-row">
+                        <h2 class="cart__title cart__main-text">Carrito de compras</h2>
+                        <div class="cart__close cart-icon"><i class="fa-solid fa-xmark"></i></div>
+                    </div>
                     <div class="cart__heading cart-row">
                         <h3 class="cart__subtitle">Producto</h3>
                         <h3 class="cart__subtitle">Subtotal</h3>
                     </div>
                     <div class="cart__body">
-                        <div class="cart__product">
-                            <div class="cart-row">
-                                <h4 class="cart__product-title">Blend especial (moka)</h4>
-                                <div class="cart__product-col">
-                                    <p class="cart__product-price">$3200</p>
-                                    <img src="../icons/trash.svg" alt="Eliminar producto" class="cart__trash">
-                                </div>
-                            </div>
-                            <div class="cantidad-row">
-                                <i class="fa-solid fa-minus"></i>
-                                <p class="cart__cantidad">1</p>
-                                <i class="fa-solid fa-plus"></i>
-                            </div>
-                        </div>
-                        <div class="cart__product">
-                            <div class="cart-row">
-                                <h4 class="cart__product-title">Café de Brasil (moka)</h4>
-                                <div class="cart__product-col">
-                                    <p class="cart__product-price">$1900</p>
-                                    <img src="../icons/trash.svg" alt="Eliminar producto" class="cart__trash">
-                                </div>
-                            </div>
-                            <div class="cantidad-row">
-                                <i class="fa-solid fa-minus"></i>
-                                <p class="cart__cantidad">1</p>
-                                <i class="fa-solid fa-plus"></i>
-                            </div>
+                        <div class="cart__products">
+                            <!-- Aquí los productos (carrito) -->
                         </div>
                         <div class="cart__envio">
                             <div class="envio-row">
@@ -80,15 +58,15 @@
                         <div class="cart__total">
                             <div class="cart__price cart-row">
                                 <p class="cart__secondary-text">Subtotal (sin envío)</p>
-                                <p class="cart__secondary-text">$5100</p>
+                                <p class="subtotal cart__secondary-text">$5100</p>
                             </div>
                             <div class="cart__price cart-row">
                                 <p class="cart__secondary-text">Envío</p>
-                                <p class="cart__secondary-text">$600</p>
+                                <p class="envio cart__secondary-text">0</p>
                             </div>
                             <div class="cart__total-price cart__price cart-row">
                                 <p class="cart__main-text">Total</p>
-                                <p class="cart__main-text">$5700</p>
+                                <p class="precioTotal cart__main-text">0</p>
                             </div>
                         </div>
                     </div>
@@ -100,7 +78,7 @@
         <section class="products products-primary">
             <div class="container">
                 <div class="products-grid products-coffee">
-                    
+                    <!-- Aquí los productos (café) -->
                 </div>
             </div>
         </section>
@@ -108,7 +86,7 @@
             <div class="container">
                 <h2 class="products-secondary__title">Cosas ricas para acompañar</h2>
                 <div class="products-grid products-patisserie">
-
+                    <!-- Aquí los productos (patisserie) -->
                 </div>
             </div>
         </section>
@@ -129,5 +107,6 @@
     </footer>
 
     <script src="../js/main.js"></script>
+    <script src="../js/products.js"></script>
 </body>
 </html>

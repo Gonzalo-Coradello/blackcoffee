@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;500;600&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/5cf2c2763c.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -18,7 +19,7 @@
                 <li class="nav__item"><a href="./pages/products.html" class="nav__link">productos</a></li>
                 <li class="nav__item"><a href="#" class="nav__link">contacto</a></li>
             </ul>
-            <a href="" class="nav__icon cart"><img src="./icons/cart.svg" alt="Carrito"></a>
+            <i class="nav__icon cart-icon" id="cart-icon"><img src="./icons/cart.svg" alt="Carrito"></i>
         </nav>
     </header>
     <main>
@@ -27,6 +28,51 @@
                 <h2 class="slogan">Enjoy the best coffee in the comfort of your home.</h2>
                 <img src="./img/logo-white.png" alt="Blackcoffee logo" class="logo">
         </section>
+
+        <section class="cart">
+            <div class="cart-overlay | ">
+                <div class="cart-container | ">
+                    <div class="cart-row">
+                        <h2 class="cart__title cart__main-text">Carrito de compras</h2>
+                        <div class="cart__close cart-icon"><i class="fa-solid fa-xmark"></i></div>
+                    </div>
+                    <div class="cart__heading cart-row">
+                        <h3 class="cart__subtitle">Producto</h3>
+                        <h3 class="cart__subtitle">Subtotal</h3>
+                    </div>
+                    <div class="cart__body">
+                        
+                        <div class="cart__envio">
+                            <div class="envio-row">
+                                <img class="cart__truck" src="../icons/truck.png" alt="Camión de envíos">
+                                <p class="cart__main-text">¡Genial! <span>Tenés envío gratis</span></p>
+                            </div>
+                            <div class="cart__calcular-envio">
+                                <input class="cart__input" type="text" placeholder="Tu código postal">
+                                <a class="cart__button btn btn--outline">Calcular</a>
+                            </div>
+                            <a href="#" class="cart__buscar-codigo">No sé mi código postal</a>
+                        </div>
+                        <div class="cart__total">
+                            <div class="cart__price cart-row">
+                                <p class="cart__secondary-text">Subtotal (sin envío)</p>
+                                <p class="cart__secondary-text">$5100</p>
+                            </div>
+                            <div class="cart__price cart-row">
+                                <p class="cart__secondary-text">Envío</p>
+                                <p class="cart__secondary-text">$600</p>
+                            </div>
+                            <div class="cart__total-price cart__price cart-row">
+                                <p class="cart__main-text">Total</p>
+                                <p class="cart__main-text">$5700</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn cart__main-button">Iniciar compra</a>
+                </div>
+            </div>
+        </section>
+
         <section class="about-us container row">
                 <div class="about__col">
                     <h2 class="about__title">Nosotros</h2>
