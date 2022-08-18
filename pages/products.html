@@ -47,22 +47,51 @@
                         <div class="cart__envio">
                             <div class="envio-row">
                                 <img class="cart__truck" src="../icons/truck.png" alt="Camión de envíos">
-                                <p class="cart__main-text">¡Genial! <span>Tenés envío gratis</span></p>
+                                <p id="cartelEnvio" class="cart__main-text">Envío gratis superando los $4000.</p>
+                                <!-- ¡Genial! <span>Tenés envío gratis</span> -->
                             </div>
                             <div class="cart__calcular-envio">
-                                <input class="cart__input" type="text" placeholder="Tu código postal">
-                                <a class="cart__button btn btn--outline">Calcular</a>
+                                <form>
+                                    <select name="provincia" id="provinciaInput">
+                                        <option value ="" selected>Seleccione su provincia</option>
+                                        <option value="baires">Buenos Aires</option>
+                                        <option value="caba">CABA</option>
+                                        <option value="catamarca">Catamarca</option>
+                                        <option value="chaco">Chaco</option>
+                                        <option value="chubut">Chubut</option>
+                                        <option value="cordoba">Córdoba</option>
+                                        <option value="corrientes">Corrientes</option>
+                                        <option value="entreRios">Entre Ríos</option>
+                                        <option value="formosa">Formosa</option>
+                                        <option value="jujuy">Jujuy</option>
+                                        <option value="laPampa">La Pampa</option>
+                                        <option value="laRioja">La Rioja</option>
+                                        <option value="mendoza">Mendoza</option>
+                                        <option value="misiones">Misiones</option>
+                                        <option value="neuquen">Neuquén</option>
+                                        <option value="rioNegro">Río Negro</option>
+                                        <option value="salta">Salta</option>
+                                        <option value="sanJuan">San Juan</option>
+                                        <option value="sanLuis">San Luis</option>
+                                        <option value="santaCruz">Santa Cruz</option>
+                                        <option value="santaFe">Santa Fe</option>
+                                        <option value="santiagoDelEstero">Santiago del Estero</option>
+                                        <option value="tierraDelFuego">Tierra del Fuego</option>
+                                        <option value="tucuman">Tucumán</option>
+                                    </select>
+                                </form>
+                                <button id="botonCalcularEnvio" class="cart__button btn btn--outline">Calcular</button>
                             </div>
                             <a href="#" class="cart__buscar-codigo">No sé mi código postal</a>
                         </div>
                         <div class="cart__total">
                             <div class="cart__price cart-row">
                                 <p class="cart__secondary-text">Subtotal (sin envío)</p>
-                                <p class="subtotal cart__secondary-text">$5100</p>
+                                <p class="subtotal cart__secondary-text">0</p>
                             </div>
                             <div class="cart__price cart-row">
                                 <p class="cart__secondary-text">Envío</p>
-                                <p class="envio cart__secondary-text">0</p>
+                                <p class="envio envioGratis cart__secondary-text">0</p>
                             </div>
                             <div class="cart__total-price cart__price cart-row">
                                 <p class="cart__main-text">Total</p>
@@ -70,7 +99,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn cart__main-button">Iniciar compra</a>
+                    <button class="btn cart__main-button">Iniciar compra</button>
                 </div>
             </div>
         </section>
