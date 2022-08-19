@@ -710,8 +710,16 @@ option {
         width: max-content;
     }
 
+    .product {
+        background-color: transparent;
+        transition: background-color .3s;
+    }
+
+    .product:hover {
+        background-color: var(--bg-card);
+    }
+
     .product__onhover {
-        /* display: none; */
         max-height: 0;
         transform: scaleY(0);
         opacity: 0;
