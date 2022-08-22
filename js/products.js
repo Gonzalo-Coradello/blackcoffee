@@ -78,12 +78,13 @@ document.addEventListener("DOMContentLoaded", () => {
 cafe.forEach((prod) => {
     const productoDOM = document.createElement("div");
     productoDOM.className = "product";
+    productoDOM.dataset.aos = "zoom-in"
     productoDOM.innerHTML = `<img src="${prod.foto}" alt="${prod.nombre}" class="product__img">
                             <h4 class="product__title">${prod.nombre}</h4>
                             <p class="product__body">${prod.info}</p>
                             <div class="product__onhover">
                                 <form>
-                                    <div class="row">
+                                    <div class="row molienda">
                                         <label for="molienda">Molienda</label>
                                         <select name="molienda" id="molienda${prod.id}">
                                             <option value="(grano)">Grano</option>
@@ -128,7 +129,8 @@ cafe.forEach((prod) => {
             stopOnFocus: false,
             className: "toast-agregar",
             style: {
-                background: "linear-gradient(to right, #00b09b, #96c93d)"
+                background: "rgba(0, 0, 0, 0.8)",
+                "box-shadow": "none"
             },
             onClick: () => {
                 abrirCerrarCarrito()}
@@ -154,6 +156,7 @@ cafe.forEach((prod) => {
 patisserie.forEach((prod) => {
     const productoDOM = document.createElement("div");
     productoDOM.className = "product";
+    productoDOM.dataset.aos = "zoom-in"
     productoDOM.innerHTML = `<img src="${prod.foto}" alt="${prod.nombre}" class="product__img">
                             <h4 class="product__title">${prod.nombre}</h4>
                             <p class="product__subtitle">x ${prod.unidades} unidades</p>
@@ -184,7 +187,8 @@ patisserie.forEach((prod) => {
             stopOnFocus: false,
             className: "toast-agregar",
             style: {
-                background: "linear-gradient(to right, #00b09b, #96c93d)"
+                background: "rgba(0, 0, 0, 0.8)",
+                "box-shadow": "none"
             },
             onClick: () => {
                 abrirCerrarCarrito()}
@@ -337,10 +341,20 @@ const comprar = () => {
     abrirCerrarCarrito();
     // alert("Compra realizada exitosamente");
 
-    Swal.fire(
-        '¡Compra realizada exitosamente!',
-        'succces'
-    )
+
+
+    Swal.fire({
+        icon: 'success',
+        title: '¡Que lo disfrutes!',
+        text: 'Compra realizada exitosamente',
+        showConfirmButton: false,
+        timer: 2500
+    });
+
+    // Swal.fire(
+    //     '¡Compra realizada exitosamente!',
+    //     'succces'
+    // )
 
     let ultimaCompra = carrito;
     localStorage.setItem("Última compra realizada", JSON.stringify(ultimaCompra));

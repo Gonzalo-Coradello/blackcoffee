@@ -8,8 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;500;600&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/5cf2c2763c.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <header>
@@ -92,17 +93,17 @@
         </section>
         <section class="products-intro container">
             <div class="row">
-                <div class="intro-product">
+                <div data-aos="zoom-in" class="intro-product">
                     <img class="intro-product__img" src="./img/productos/Blend-grano.png" alt="Bolsa de café de especialidad">
                     <h4 class="intro-product__title">Blend especial</h4>
                     <p class="intro-product__body">Café de intensidad media con notas de caña de azúcar, caramelo y avellanas. Acidez media y gran cuerpo.</p>
                 </div>
-                <div class="intro-product">
+                <div data-aos="zoom-in" class="intro-product">
                     <img class="intro-product__img" src="./img/productos/Brasil-moka.png" alt="Bolsa de café de especialidad">
                     <h4 class="intro-product__title">Brasil</h4>
                     <p class="intro-product__body">Café intenso con notas de cacao amargo y frutos secos como avellana. Acidez media con retrogusto persistente y gran cuerpo.</p>
                 </div>
-                <div class="intro-product intro-last-product">
+                <div data-aos="zoom-in" class="intro-product intro-last-product">
                     <img class="intro-product__img" src="./img/productos/Colombia-V60.png" alt="Bolsa de café de especialidad">
                     <h4 class="intro-product__title">Colombia</h4>
                     <p class="intro-product__body">Café de intensidad media con notas frutales, acidez media alta cítrica y brillante, cuerpo medio.</p>
@@ -145,6 +146,13 @@
         <img src="./img/logo-white.png" alt="Blackcoffee logo" class="logo">
     </footer>
 
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- Mi script -->
     <script src="./js/main.js"></script>
 </body>
 </html>

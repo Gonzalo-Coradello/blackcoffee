@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;500;600&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/5cf2c2763c.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
@@ -27,7 +28,7 @@
         <section class="products-hero">
                 <img class="products-hero__img" src="../img/productos-fondo.png" alt="Nuestros productos">
                 <h2 class="products-hero__title">Nuestros productos</h2>
-                <p class="products-sign">Envío gratis a partir de los $3500 - 10% OFF en tu primera compra!</p>
+                <p class="products-sign">Envío gratis a partir de los $4000 - 10% OFF en tu primera compra!</p>
         </section>
 
         <section class="cart">
@@ -114,7 +115,7 @@
         </section>
         <section class="products products-secondary">
             <div class="container">
-                <h2 class="products-secondary__title">Cosas ricas para acompañar</h2>
+                <h2 data-aos="zoom-in" class="products-secondary__title">Cosas ricas para acompañar</h2>
                 <div class="products-grid products-patisserie">
                     <!-- Aquí los productos (patisserie) -->
                 </div>
@@ -142,6 +143,12 @@
     <!-- Toastify -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/toastify-js"></script>
 
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    
     <!-- Mis script -->
     <script src="../js/main.js"></script>
     <script src="../js/products.js"></script>

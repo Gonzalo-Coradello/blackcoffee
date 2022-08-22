@@ -38,9 +38,10 @@
     --clr-secondary: #D3D3D3;
     --clr-dark: #232323;
     --bg-primary: #171717;
-    --bg-secondary: rgba(0, 0, 0, 0.7);
+    --bg-secondary: rgba(0, 0, 0, 0.25);
+    --bg-dark: rgba(0, 0, 0, 0.6);
     --bg-card: rgba(211, 211, 211, 0.07);
-    --bg-cart: rgba(10, 10, 10, 0.77);
+    --bg-cart: rgba(10, 10, 10, 0.8);
     --bg-cart-secondary: rgba(217, 217, 217, 0.04);
 }
 
@@ -50,6 +51,8 @@ body {
     font-family: var(--ff-primary);
     font-weight: var(--fw-normal);
     font-size: var(--fs-300);
+    letter-spacing: 0.05em;
+    line-height: 165.5%;
 }
 
 .nav,
@@ -59,7 +62,6 @@ body {
 .product__title,
 .methods__title,
 .products-hero__title,
-.molienda,
 .unidades,
 .product__precio,
 .products-secondary__title,
@@ -91,6 +93,8 @@ body {
 .about__body {
     font-size: var(--fs-400);
     font-weight: var(--fw-light);
+    letter-spacing: 0.075em;
+    line-height: 197%;
 }
 
 .gallery__title {
@@ -105,9 +109,14 @@ body {
     font-weight: var(--fw-primary);
 }
 
-.all-products {
+.all-products a {
     font-weight: var(--fw-thin);
     font-size: var(--fs-400);
+    display: flex;
+}
+
+.all-products__arrow {
+    object-fit: contain;
 }
 
 .methods__title {
@@ -279,7 +288,7 @@ option {
 }
 
 .nav-scrolled {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-dark);
     transition: all 350ms;
 }
 
@@ -335,12 +344,8 @@ option {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-basis: 55%;
-}
-
-.about__body {
-    max-width: 30ch;
 }
 
 .about__img {
@@ -351,7 +356,8 @@ option {
 }
 
 .about__title {
-    margin-bottom: .2em;
+    margin-bottom: 1em;
+    padding-left: .75em;
 }
 
 
@@ -440,7 +446,19 @@ option {
 
 .methods__icon {
     object-fit: contain;
-    height: 50%;
+    max-height: 50px;
+}
+
+.methods__icons :nth-child(4) {
+    transform: translateX(.5rem);
+}
+
+.methods__icons :nth-child(6) {
+    max-height: 35px;
+}
+
+.methods__icons :nth-child(8) {
+    transform: translateX(-.2rem);
 }
 
 .contact {
@@ -453,8 +471,33 @@ option {
     display: flex;
     gap: 6em;
     margin-top: 1em;
+    align-items: center;
 }
 
+
+/* Footer */
+
+footer {
+    color: rgba(255, 255, 255, 1);
+
+}
+
+.contact__icon img {
+    width: 1rem;
+}
+
+.footer__credits {
+    text-align: center;
+    border-top: 1px solid rgba(211, 211, 211, 0.17);
+    padding-top: 1.5em;
+    padding-inline: 1.5em;
+    margin-top: 2.5em;
+    margin-inline: 2.5em;
+}
+
+footer .logo {
+    margin-inline: auto;
+}
 
 /* Página products */
 
@@ -478,11 +521,18 @@ option {
 
 .products-sign {
     display: block;
-    width: max-content;
+    width: 80%;
     background-color: var(--bg-card);
-    margin: 0 auto;
+    margin: .5em auto;
     padding: .25em .75em;
     border-radius: 1rem;
+    text-align: center;
+}
+
+.products-secondary {
+    background-color: var(--bg-secondary);
+    padding-block: 2rem;
+    margin-bottom: 2rem;
 }
 
 .products-grid {
@@ -516,6 +566,15 @@ option {
     margin-left: .8rem;
 }
 
+.products-primary {
+    margin-top: 2rem;
+}
+
+.products-secondary__title {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
 .product {
     font-size: var(--fs-300);
     display: flex;
@@ -523,6 +582,16 @@ option {
     align-items: center;
     background-color: var(--bg-card);
     padding: 1.5em;
+}
+
+.product__title {
+    text-align: center;
+}
+
+.product__onhover,
+.product__body,
+.product__subtitle {
+    display: none;
 }
 
 .product__img {
@@ -573,6 +642,9 @@ option {
 
 /* Carrito */
 
+.cart {
+    margin-top: 0;
+}
 
 .cart-overlay {
     position: fixed;
@@ -580,7 +652,7 @@ option {
     right: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-dark);
     visibility: hidden;
     z-index: 100;
 }
@@ -710,6 +782,11 @@ option {
         width: max-content;
     }
 
+    .products-sign {
+        margin-top: 0;
+        width: fit-content;
+    }
+
     .product {
         background-color: transparent;
         transition: background-color .3s;
@@ -719,7 +796,13 @@ option {
         background-color: var(--bg-card);
     }
 
+    .product__body,
+    .product__subtitle {
+        display: block;
+    }
+
     .product__onhover {
+        display: block;
         max-height: 0;
         transform: scaleY(0);
         opacity: 0;
@@ -727,7 +810,7 @@ option {
     }
 
     .product__show {
-        max-height: 100px;
+        max-height: 120px;
         transform: scaleY(100%);
         opacity: 1;
 
@@ -743,6 +826,10 @@ option {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         grid-column-gap: 1.5rem;
         grid-row-gap: 2rem;
+    }
+
+    .molienda {
+        margin-bottom: .5rem;
     }
 
     .product__precio {
@@ -784,14 +871,66 @@ option {
     
     .gallery__title {
         font-size: 2.5vw;
-        line-height: 1.8;
-        letter-spacing: 3px;
+        line-height: 224.5%;
+        letter-spacing: -0.02em;
         grid-column: 7 / -1;
         grid-row: 3 / -1;
-        max-width: 25ch;
+        max-width: 20ch;
         transform: translate(-1rem, -4rem);
     }
+
+    /* Footer */
+
+    .contact__title {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact__icon img {
+        width: 2.5rem;
+    }
+
+    .footer__credits {
+        max-width: 70ch;
+        padding-top: 3em;
+        padding-inline: 3em;
+        margin-top: 5em;
+        margin-inline: auto;
+    }
+
+    footer .logo {
+        margin-block: 2rem;
+    }
+
+    .methods__title {
+        margin-top: 2rem;
+    }
+
+    .methods__icons {
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    .methods__icon {
+        object-fit: contain;
+        max-height: 120px;
+        margin-bottom: 1.5rem;
+    }
+
+    .methods__icons :nth-child(2) {
+        max-height: 105px;
+    }
+
+    .methods__icons :nth-child(4) {
+        transform: translateX(2rem);
+    }
+    
+    .methods__icons :nth-child(6) {
+        max-height: 75px;
+    }
 }
+
+
 
 @media screen and (max-width: 400px){
 
