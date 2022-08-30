@@ -1,158 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Black coffee</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;500;600&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/5cf2c2763c.js" crossorigin="anonymous"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;500;600&family=Roboto:wght@100;300;500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/5cf2c2763c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
     <header>
-        <nav class="nav">
-            <ul class="nav__list">
-                <li class="nav__item"><a href="#" class="nav__link">inicio</a></li>
-                <li class="nav__item"><a href="./pages/products.html" class="nav__link">productos</a></li>
-                <li class="nav__item"><a href="#" class="nav__link">contacto</a></li>
-            </ul>
-            <i class="nav__icon cart-icon" id="cart-icon"><img src="./icons/cart.svg" alt="Carrito"></i>
-        </nav>
+      <nav class="nav nav-index">
+        <ul class="nav__list nav__list--index">
+          <li class="nav__item"><a href="#" class="nav__link">inicio</a></li>
+          <li class="nav__item">
+            <a href="./pages/products.html" class="nav__link">productos</a>
+          </li>
+          <li class="nav__item"><a href="#" class="nav__link">contacto</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <section class="hero">
-                <!-- <img src="./img/hero.png" alt="Café con latte art sobre un libro blanco" class="hero__img"> -->
-                <h2 class="slogan">Enjoy the best coffee in the comfort of your home.</h2>
-                <img src="./img/logo-white.png" alt="Blackcoffee logo" class="logo">
-        </section>
-
-        <section class="cart">
-            <div class="cart-overlay | ">
-                <div class="cart-container | ">
-                    <div class="cart-row">
-                        <h2 class="cart__title cart__main-text">Carrito de compras</h2>
-                        <div class="cart__close cart-icon"><i class="fa-solid fa-xmark"></i></div>
-                    </div>
-                    <div class="cart__heading cart-row">
-                        <h3 class="cart__subtitle">Producto</h3>
-                        <h3 class="cart__subtitle">Subtotal</h3>
-                    </div>
-                    <div class="cart__body">
-                        
-                        <div class="cart__envio">
-                            <div class="envio-row">
-                                <img class="cart__truck" src="../icons/truck.png" alt="Camión de envíos">
-                                <p class="cart__main-text">¡Genial! <span>Tenés envío gratis</span></p>
-                            </div>
-                            <div class="cart__calcular-envio">
-                                <input class="cart__input" type="text" placeholder="Tu código postal">
-                                <a class="cart__button btn btn--outline">Calcular</a>
-                            </div>
-                            <a href="#" class="cart__buscar-codigo">No sé mi código postal</a>
-                        </div>
-                        <div class="cart__total">
-                            <div class="cart__price cart-row">
-                                <p class="cart__secondary-text">Subtotal (sin envío)</p>
-                                <p class="cart__secondary-text">$5100</p>
-                            </div>
-                            <div class="cart__price cart-row">
-                                <p class="cart__secondary-text">Envío</p>
-                                <p class="cart__secondary-text">$600</p>
-                            </div>
-                            <div class="cart__total-price cart__price cart-row">
-                                <p class="cart__main-text">Total</p>
-                                <p class="cart__main-text">$5700</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="btn cart__main-button">Iniciar compra</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="about-us container row">
-                <div class="about__col">
-                    <h2 class="about__title">Nosotros</h2>
-                    <p class="about__body">Somos tostadores de café de alta calidad, utilizamos perfiles de tueste que garantizan las características de un producto óptimo y logran la mejor calidad en cada grano. Nuestra misión es que puedas disfrutar del mejor café en la comodidad de tu hogar y con tu método favorito.</p>
-                </div>
-                <img class="about__img" src="./img/granos.png" alt="Granos de café en el aire">
-        </section>
-        <section class="gallery">
-            <div class="container">
-                <div class="gallery__grid">
-                    <img class="gallery__img" src="./img/1.png" alt="Café de especialidad">
-                    <img class="gallery__img" src="./img/2.png" alt="Amigos brindando con café">
-                    <img class="gallery__img" src="./img/3.png" alt="Taza de café en la cama">
-                    <h2 class="gallery__title">Calidad. Aroma. Sabor. Buenos momentos.</h2>
-                </div>
-            </div>
-        </section>
-        <section class="products-intro container">
-            <div class="row">
-                <div data-aos="zoom-in" class="intro-product">
-                    <img class="intro-product__img" src="./img/productos/blend-grano.png" alt="Bolsa de café de especialidad">
-                    <h4 class="intro-product__title">Blend especial</h4>
-                    <p class="intro-product__body">Café de intensidad media con notas de caña de azúcar, caramelo y avellanas. Acidez media y gran cuerpo.</p>
-                </div>
-                <div data-aos="zoom-in" class="intro-product">
-                    <img class="intro-product__img" src="./img/productos/brasil-moka.png" alt="Bolsa de café de especialidad">
-                    <h4 class="intro-product__title">Brasil</h4>
-                    <p class="intro-product__body">Café intenso con notas de cacao amargo y frutos secos como avellana. Acidez media con retrogusto persistente y gran cuerpo.</p>
-                </div>
-                <div data-aos="zoom-in" class="intro-product intro-last-product">
-                    <img class="intro-product__img" src="./img/productos/colombia-v60.png" alt="Bolsa de café de especialidad">
-                    <h4 class="intro-product__title">Colombia</h4>
-                    <p class="intro-product__body">Café de intensidad media con notas frutales, acidez media alta cítrica y brillante, cuerpo medio.</p>
-                </div>
-            </div>
-            <h3 class="all-products">
-                <a class="btn btn--outline" href="./pages/products.html">Ver todos los productos
-                    <img src="./icons/arrow.svg" alt="" class="all-products__arrow">
-                </a>
-            </h3>
-        </section>
-        <section class="methods">
-            <div class="container">
-                <h2 class="methods__title">Encontrá el café ideal para tu cafetera</h2>
-                <div class="methods__icons">
-                    <img class="methods__icon" src="./img/metodos/metodo-moka.svg" alt="Moka, cafetera italiana">
-                    <img class="methods__icon" src="./img/metodos/metodo-chemex.svg" alt="Chemex">
-                    <img class="methods__icon" src="./img/metodos/metodo-prensa.svg" alt="Prensa francesa">
-                    <img class="methods__icon" src="./img/metodos/metodo-espresso.svg" alt="Espresso">
-                    <img class="methods__icon" src="./img/metodos/metodo-v60.svg" alt="V60">
-                    <img class="methods__icon" src="./img/metodos/metodo-capsulas.svg" alt="Capsulas recargables">
-                    <img class="methods__icon" src="./img/metodos/metodo-aero.svg" alt="Aeropress">
-                    <img class="methods__icon" src="./img/metodos/metodo-filtro.svg" alt="Cafetera de filtro">
-                </div>
-            </div>
-        </section>
+      <section class="hero">
+        <h2 class="slogan">
+          Enjoy the best coffee in the comfort of your home.
+        </h2>
+        <img src="./img/logo-white.png" alt="Blackcoffee logo" class="logo" />
+        <div class="lines"></div>
+      </section>
+      <section class="about-us container row">
+        <div class="about__col">
+          <h2 class="about__title">Nosotros</h2>
+          <p class="about__body">
+            Somos tostadores de café de alta calidad, utilizamos perfiles de
+            tueste que garantizan las características de un producto óptimo y
+            logran la mejor calidad en cada grano. Nuestra misión es que puedas
+            disfrutar del mejor café en la comodidad de tu hogar y con tu método
+            favorito.
+          </p>
+        </div>
+        <img
+          class="about__img"
+          src="./img/granos.png"
+          alt="Granos de café en el aire"
+        />
+      </section>
+      <section class="gallery">
+        <div class="container">
+          <div class="gallery__grid">
+            <img
+              class="gallery__img"
+              src="./img/1.png"
+              alt="Café de especialidad"
+            />
+            <img
+              class="gallery__img"
+              src="./img/2.png"
+              alt="Amigos brindando con café"
+            />
+            <img
+              class="gallery__img"
+              src="./img/3.png"
+              alt="Taza de café en la cama"
+            />
+            <h2 class="gallery__title">
+              Calidad. Aroma. Sabor. Buenos momentos.
+            </h2>
+          </div>
+        </div>
+      </section>
+      <section class="products-intro container">
+        <div class="row">
+          <div data-aos="zoom-in" class="intro-product">
+            <img
+              class="intro-product__img"
+              src="./img/productos/blend-grano.png"
+              alt="Bolsa de café de especialidad"
+            />
+            <h4 class="intro-product__title">Blend especial</h4>
+            <p class="intro-product__body">
+              Café de intensidad media con notas de caña de azúcar, caramelo y
+              avellanas. Acidez media y gran cuerpo.
+            </p>
+          </div>
+          <div data-aos="zoom-in" class="intro-product">
+            <img
+              class="intro-product__img"
+              src="./img/productos/brasil-moka.png"
+              alt="Bolsa de café de especialidad"
+            />
+            <h4 class="intro-product__title">Brasil</h4>
+            <p class="intro-product__body">
+              Café intenso con notas de cacao amargo y frutos secos como
+              avellana. Acidez media con retrogusto persistente y gran cuerpo.
+            </p>
+          </div>
+          <div data-aos="zoom-in" class="intro-product intro-last-product">
+            <img
+              class="intro-product__img"
+              src="./img/productos/colombia-v60.png"
+              alt="Bolsa de café de especialidad"
+            />
+            <h4 class="intro-product__title">Colombia</h4>
+            <p class="intro-product__body">
+              Café de intensidad media con notas frutales, acidez media alta
+              cítrica y brillante, cuerpo medio.
+            </p>
+          </div>
+        </div>
+        <h3 class="all-products">
+          <a class="btn btn--outline" href="./pages/products.html"
+            >Ver todos los productos
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="all-products__arrow bi bi-chevron-double-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"
+              />
+            </svg>
+          </a>
+        </h3>
+      </section>
+      <section class="methods">
+        <div class="container">
+          <h2 class="methods__title">
+            Encontrá el café ideal para tu cafetera
+          </h2>
+          <div class="methods__icons">
+            <img
+              class="methods__icon"
+              src="./img/metodos/metodo-moka.svg"
+              alt="Moka, cafetera italiana"
+            />
+            <img
+              class="methods__icon"
+              src="./img/metodos/metodo-chemex.svg"
+              alt="Chemex"
+            />
+            <img
+              class="methods__icon"
+              src="./img/metodos/metodo-prensa.svg"
+              alt="Prensa francesa"
+            />
+            <img
+              class="methods__icon"
+              src="./img/metodos/metodo-espresso.svg"
+              alt="Espresso"
+            />
+            <img
+              class="methods__icon"
+              src="./img/metodos/metodo-v60.svg"
+              alt="V60"
+            />
+            <img
+              class="methods__icon"
+              src="./img/metodos/metodo-capsulas.svg"
+              alt="Capsulas recargables"
+            />
+            <img
+              class="methods__icon"
+              src="./img/metodos/metodo-aero.svg"
+              alt="Aeropress"
+            />
+            <img
+              class="methods__icon"
+              src="./img/metodos/metodo-filtro.svg"
+              alt="Cafetera de filtro"
+            />
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
-        <div class="container">
-            <div class="contact">
-                <h3 class="contact__title">Contacto</h3>
-                <div class="contact__icons">
-                    <a href="" class="contact__icon"><img src="./icons/fb.svg" alt="Facebook"></a>
-                    <a href="" class="contact__icon"><img src="./icons/mail.svg" alt="E-mail"></a>
-                    <a href="" class="contact__icon"><img src="./icons/ig.svg" alt="Instagram"></a>
-                </div>
-            </div>
-            <p class="footer__credits">Este sitio fue diseñado por Talia Laborde y desarrollado por Gonzalo Coradello.</p>
+      <div class="container">
+        <div class="contact">
+          <h3 class="contact__title">Contacto</h3>
+          <div class="contact__icons">
+            <a href="" class="contact__icon"
+              ><img src="./icons/fb.svg" alt="Facebook"
+            /></a>
+            <a href="" class="contact__icon"
+              ><img src="./icons/mail.svg" alt="E-mail"
+            /></a>
+            <a href="" class="contact__icon"
+              ><img src="./icons/ig.svg" alt="Instagram"
+            /></a>
+          </div>
         </div>
-        <img src="./img/logo-white.png" alt="Blackcoffee logo" class="logo">
+        <p class="footer__credits">
+          Este sitio fue diseñado por Talia Laborde y desarrollado por Gonzalo
+          Coradello.
+        </p>
+      </div>
+      <img
+        src="./img/logo-white.png"
+        alt="Blackcoffee logo"
+        class="footer-logo"
+      />
     </footer>
 
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+      AOS.init();
     </script>
 
     <!-- Mi script -->
     <script src="./js/main.js"></script>
-</body>
+  </body>
 </html>

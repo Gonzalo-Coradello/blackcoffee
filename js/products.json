@@ -1,0 +1,145 @@
+[
+  {
+    "id": 1,
+    "nombre": "Brasil",
+    "tipo": "café",
+    "info": "Café intenso con notas de cacao amargo y frutos secos como avellana. Acidez media con retrogusto persistente y gran cuerpo.",
+    "precio": 1600,
+    "foto": "../img/productos/brasil-moka.png",
+    "cantidad": 1,
+    "precioTotal": 1600,
+    "molienda": "grano"
+  },
+
+  {
+    "id": 2,
+    "nombre": "Colombia",
+    "tipo": "café",
+    "info": "Café de intensidad media con notas frutales, acidez media alta cítrica y brillante, y cuerpo medio.",
+    "precio": 2050,
+    "foto": "../img/productos/colombia-v60.png",
+    "cantidad": 1,
+    "precioTotal": 2050,
+    "molienda": "grano"
+  },
+
+  {
+    "id": 3,
+    "nombre": "Perú",
+    "tipo": "café",
+    "info": "Café de intensidad media con notas a cacao, ciruela y leves notas cítricas. Acidez media alta.",
+    "precio": 2200,
+    "foto": "../img/productos/peru-filtro.png",
+    "cantidad": 1,
+    "precioTotal": 2200,
+    "molienda": "grano"
+  },
+
+  {
+    "id": 4,
+    "nombre": "Etiopía",
+    "tipo": "café",
+    "info": "Café de baja intensidad, acidez y cuerpo medio. Aromas florales con notas de pasas de uva, frutos secos, mermelada y jazmín.",
+    "precio": 2520,
+    "foto": "../img/productos/etiopia-chemex.png",
+    "cantidad": 1,
+    "precioTotal": 2520,
+    "molienda": "grano"
+  },
+
+  {
+    "id": 5,
+    "nombre": "Blend Especial",
+    "tipo": "café",
+    "info": "Café de intensidad media con notas de caña de azúcar, caramelo y avellanas. Acidez media y gran cuerpo.",
+    "precio": 3200,
+    "foto": "../img/productos/blend-grano.png",
+    "cantidad": 1,
+    "precioTotal": 3200,
+    "molienda": "grano"
+  },
+
+  {
+    "id": 6,
+    "nombre": "Kenia",
+    "tipo": "café",
+    "info": "Café de acidez media baja y cuerpo sedoso, con aromas florales y notas de vainilla, fresas, té negro y jazmín.",
+    "precio": 2830,
+    "foto": "../img/productos/kenia-v60.png",
+    "cantidad": 1,
+    "precioTotal": 2830,
+    "molienda": "grano"
+  },
+
+  {
+    "id": 7,
+    "nombre": "Cookies",
+    "tipo": "patisserie",
+    "unidades": 5,
+    "info": "Tradicionales cookies de vainilla con irresistibles chips de chocolate.",
+    "precio": 610,
+    "foto": "../img/productos/cookie.png",
+    "cantidad": 1,
+    "precioTotal": 610
+  },
+
+  {
+    "id": 8,
+    "nombre": "Mini cookies de limón",
+    "tipo": "patisserie",
+    "unidades": 35,
+    "info": "Galletitas dulces de limón destinadas a generar una experiencia exquisita con el café.",
+    "precio": 440,
+    "foto": "../img/productos/galletitas-limon.png",
+    "cantidad": 1,
+    "precioTotal": 440
+  },
+
+  {
+    "id": 9,
+    "nombre": "Waffle belga",
+    "tipo": "patisserie",
+    "unidades": 2,
+    "info": "Waffles estilo belga. Calentalos 2 minutos en tostadora y disfrutalos con queso crema, miel, arándanos o como más te guste.",
+    "precio": 440,
+    "foto": "../img/productos/waffle.png",
+    "cantidad": 1,
+    "precioTotal": 440
+  },
+
+  {
+    "id": 10,
+    "nombre": "Stroopwafel",
+    "tipo": "patisserie",
+    "unidades": 5,
+    "info": "Barquillo dulce con relleno de caramelo y manteca. Disfrutalos en modo holandés. Colocalos arriba de la taza y esperá 3 minutos para que el vapor del café saborice el barquillo y derrita su relleno de caramelo. Plaisir!",
+    "precio": 770,
+    "foto": "../img/productos/stroopwafel.png",
+    "cantidad": 1,
+    "precioTotal": 770
+  },
+
+  {
+    "id": 11,
+    "nombre": "Cuadraditos de limón",
+    "tipo": "patisserie",
+    "unidades": 6,
+    "info": "Galletitas dulces rellenas de una exquisita crema de limón.",
+    "precio": 610,
+    "foto": "../img/productos/cuadraditos.png",
+    "cantidad": 1,
+    "precioTotal": 610
+  },
+
+  {
+    "id": 12,
+    "nombre": "Cantuccini de almendras",
+    "tipo": "patisserie",
+    "unidades": 6,
+    "info": "Maridá con un latte esta exquisita tradición italiana repleta de almendras.",
+    "precio": 700,
+    "foto": "../img/productos/cantuccini.png",
+    "cantidad": 1,
+    "precioTotal": 700
+  }
+]

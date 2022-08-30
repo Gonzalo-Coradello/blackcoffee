@@ -1,156 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nuestros productos | Blackcoffee</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;500;600&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script src="https://kit.fontawesome.com/5cf2c2763c.js" crossorigin="anonymous"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;500;600&family=Roboto:wght@100;300;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/5cf2c2763c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
     <header>
-        <nav class="nav">
-            <ul class="nav__list">
-                <li class="nav__item"><a href="../index.html" class="nav__link">inicio</a></li>
-                <li class="nav__item"><a href="#" class="nav__link">productos</a></li>
-                <li class="nav__item"><a href="#" class="nav__link">contacto</a></li>
-            </ul>
-            <i class="nav__icon cart-icon" id="cart-icon"><img src="../icons/cart.svg" alt="Carrito"><span class="cart-number">0</span></i>
-        </nav>
+      <nav class="nav nav-prod">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="../index.html" class="nav__link">inicio</a>
+          </li>
+          <li class="nav__item"><a href="#" class="nav__link">productos</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">contacto</a></li>
+        </ul>
+        <i class="nav__icon cart-icon" id="cart-icon"
+          ><img src="../icons/cart.svg" alt="Carrito" /><span
+            class="cart-number"
+            >0</span
+          ></i
+        >
+      </nav>
     </header>
     <main>
-        <section class="products-hero">
-                <img class="products-hero__img" src="../img/productos-fondo.png" alt="Nuestros productos">
-                <h2 class="products-hero__title">Nuestros productos</h2>
-                <p class="products-sign">Envío gratis a partir de los $4000 - 10% OFF en tu primera compra!</p>
-        </section>
+      <section class="products-hero">
+        <img
+          class="products-hero__img"
+          src="../img/productos-fondo.png"
+          alt="Nuestros productos"
+        />
+        <h2 class="products-hero__title">Nuestros productos</h2>
+        <div class="lines-prod"></div>
+        <p class="products-sign">¡Envío gratis a partir de los $4000!</p>
+      </section>
 
-        <section class="cart">
-            <div class="cart-overlay | ">
-                <div class="cart-container | ">
-                    <div class="cart-row">
-                        <h2 class="cart__title cart__main-text">Carrito de compras</h2>
-                        <div class="cart__close cart-icon"><i class="fa-solid fa-xmark"></i></div>
-                    </div>
-                    <div class="cart__heading cart-row">
-                        <h3 class="cart__subtitle">Producto</h3>
-                        <h3 class="cart__subtitle">Subtotal</h3>
-                    </div>
-                    <div class="cart__body">
-                        <div class="cart__products">
-                            <!-- Aquí los productos (carrito) -->
-                        </div>
-                        <div class="cart__envio">
-                            <div class="envio-row">
-                                <img class="cart__truck" src="../icons/truck.png" alt="Camión de envíos">
-                                <p id="cartelEnvio" class="cart__main-text">Envío gratis superando los $4000.</p>
-                                <!-- ¡Genial! <span>Tenés envío gratis</span> -->
-                            </div>
-                            <div class="cart__calcular-envio">
-                                <form>
-                                    <select name="provincia" id="provinciaInput">
-                                        <option value ="" selected>Seleccione su provincia</option>
-                                        <option value="baires">Buenos Aires</option>
-                                        <option value="caba">CABA</option>
-                                        <option value="catamarca">Catamarca</option>
-                                        <option value="chaco">Chaco</option>
-                                        <option value="chubut">Chubut</option>
-                                        <option value="cordoba">Córdoba</option>
-                                        <option value="corrientes">Corrientes</option>
-                                        <option value="entreRios">Entre Ríos</option>
-                                        <option value="formosa">Formosa</option>
-                                        <option value="jujuy">Jujuy</option>
-                                        <option value="laPampa">La Pampa</option>
-                                        <option value="laRioja">La Rioja</option>
-                                        <option value="mendoza">Mendoza</option>
-                                        <option value="misiones">Misiones</option>
-                                        <option value="neuquen">Neuquén</option>
-                                        <option value="rioNegro">Río Negro</option>
-                                        <option value="salta">Salta</option>
-                                        <option value="sanJuan">San Juan</option>
-                                        <option value="sanLuis">San Luis</option>
-                                        <option value="santaCruz">Santa Cruz</option>
-                                        <option value="santaFe">Santa Fe</option>
-                                        <option value="santiagoDelEstero">Santiago del Estero</option>
-                                        <option value="tierraDelFuego">Tierra del Fuego</option>
-                                        <option value="tucuman">Tucumán</option>
-                                    </select>
-                                </form>
-                                <button id="botonCalcularEnvio" class="cart__button btn btn--outline">Calcular</button>
-                            </div>
-                            <a href="#" class="cart__buscar-codigo">No sé mi código postal</a>
-                        </div>
-                        <div class="cart__total">
-                            <div class="cart__price cart-row">
-                                <p class="cart__secondary-text">Subtotal (sin envío)</p>
-                                <p class="subtotal cart__secondary-text">0</p>
-                            </div>
-                            <div class="cart__price cart-row">
-                                <p class="cart__secondary-text">Envío</p>
-                                <p class="envio envioGratis cart__secondary-text">0</p>
-                            </div>
-                            <div class="cart__total-price cart__price cart-row">
-                                <p class="cart__main-text">Total</p>
-                                <p class="precioTotal cart__main-text">0</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn cart__main-button">Iniciar compra</button>
-                </div>
+      <section class="cart">
+        <div class="cart-overlay |">
+          <div class="cart-container |">
+            <div class="cart-row">
+              <h2 class="cart__title cart__main-text">Carrito de compras</h2>
+              <div class="cart__close cart-icon">
+                <i class="fa-solid fa-xmark"></i>
+              </div>
             </div>
-        </section>
+            <div class="cart__heading cart-row">
+              <h3 class="cart__subtitle">Producto</h3>
+              <h3 class="cart__subtitle">Subtotal</h3>
+            </div>
+            <div class="cart__body">
+              <div class="cart__products">
+                <!-- Aquí los productos (carrito) -->
+              </div>
+              <div class="cart__envio">
+                <div class="envio-row">
+                  <img
+                    class="cart__truck"
+                    src="../icons/truck.png"
+                    alt="Camión de envíos"
+                  />
+                  <p id="cartelEnvio" class="cart__main-text">
+                    Envío gratis superando los $4000.
+                  </p>
+                  <!-- ¡Genial! <span>Tenés envío gratis</span> -->
+                </div>
+                <div class="cart__calcular-envio">
+                  <form>
+                    <select name="provincia" id="provinciaInput">
+                      <option value="" selected>Seleccione su provincia</option>
+                      <option value="baires">Buenos Aires</option>
+                      <option value="caba">CABA</option>
+                      <option value="catamarca">Catamarca</option>
+                      <option value="chaco">Chaco</option>
+                      <option value="chubut">Chubut</option>
+                      <option value="cordoba">Córdoba</option>
+                      <option value="corrientes">Corrientes</option>
+                      <option value="entreRios">Entre Ríos</option>
+                      <option value="formosa">Formosa</option>
+                      <option value="jujuy">Jujuy</option>
+                      <option value="laPampa">La Pampa</option>
+                      <option value="laRioja">La Rioja</option>
+                      <option value="mendoza">Mendoza</option>
+                      <option value="misiones">Misiones</option>
+                      <option value="neuquen">Neuquén</option>
+                      <option value="rioNegro">Río Negro</option>
+                      <option value="salta">Salta</option>
+                      <option value="sanJuan">San Juan</option>
+                      <option value="sanLuis">San Luis</option>
+                      <option value="santaCruz">Santa Cruz</option>
+                      <option value="santaFe">Santa Fe</option>
+                      <option value="santiagoDelEstero">Santiago del Estero</option>
+                      <option value="tierraDelFuego">Tierra del Fuego</option>
+                      <option value="tucuman">Tucumán</option>
+                    </select>
+                  </form>
+                  <button
+                    id="botonCalcularEnvio"
+                    class="cart__button btn btn--outline">Calcular</button>
+                </div>
+                <a href="#" class="cart__buscar-codigo">No sé mi código postal</a>
+              </div>
+              <div class="cart__total">
+                <div class="cart__price cart-row">
+                  <p class="cart__secondary-text">Subtotal (sin envío)</p>
+                  <p class="subtotal cart__secondary-text">0</p>
+                </div>
+                <div class="cart__price cart-row">
+                  <p class="cart__secondary-text">Envío</p>
+                  <p class="envio envioGratis cart__secondary-text">0</p>
+                </div>
+                <div class="cart__total-price cart__price cart-row">
+                  <p class="cart__main-text">Total</p>
+                  <p class="precioTotal cart__main-text">0</p>
+                </div>
+              </div>
+              <button class="btn cart__main-button">Iniciar compra</button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section class="products products-primary">
-            <div class="container">
-                <div class="products-grid products-coffee">
-                    <!-- Aquí los productos (café) -->
-                </div>
-            </div>
-        </section>
-        <section class="products products-secondary">
-            <div class="container">
-                <h2 data-aos="zoom-in" class="products-secondary__title">Cosas ricas para acompañar</h2>
-                <div class="products-grid products-patisserie">
-                    <!-- Aquí los productos (patisserie) -->
-                </div>
-            </div>
-        </section>
+      <section class="products products-primary">
+        <div class="container">
+          <div class="products-grid products-coffee">
+            <!-- Aquí los productos (café) -->
+          </div>
+        </div>
+      </section>
+      <section class="products products-secondary">
+        <div class="container">
+          <h2 data-aos="zoom-in" class="products-secondary__title">
+            Cosas ricas para acompañar
+          </h2>
+          <div class="products-grid products-patisserie">
+            <!-- Aquí los productos (patisserie) -->
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
-        <div class="container">
-            <div class="contact">
-                <h3 class="contact__title">Contacto</h3>
-                <div class="contact__icons">
-                    <a href="" class="contact__icon"><img src="../icons/fb.svg" alt="Facebook"></a>
-                    <a href="" class="contact__icon"><img src="../icons/mail.svg" alt="E-mail"></a>
-                    <a href="" class="contact__icon"><img src="../icons/ig.svg" alt="Instagram"></a>
-                </div>
-            </div>
-            <p class="footer__credits">Este sitio fue diseñado por Talia Laborde y desarrollado por Gonzalo Coradello.</p>
+      <div class="container">
+        <div class="contact">
+          <h3 class="contact__title">Contacto</h3>
+          <div class="contact__icons">
+            <a href="" class="contact__icon"
+              ><img src="../icons/fb.svg" alt="Facebook"
+            /></a>
+            <a href="" class="contact__icon"
+              ><img src="../icons/mail.svg" alt="E-mail"
+            /></a>
+            <a href="" class="contact__icon"
+              ><img src="../icons/ig.svg" alt="Instagram"
+            /></a>
+          </div>
         </div>
-        <img src="../img/logo-white.png" alt="Blackcoffee logo" class="logo">
+        <p class="footer__credits">
+          Este sitio fue diseñado por Talia Laborde y desarrollado por Gonzalo
+          Coradello.
+        </p>
+      </div>
+      <img
+        src="../img/logo-white.png"
+        alt="Blackcoffee logo"
+        class="footer-logo"
+      />
     </footer>
 
     <!-- Sweet alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Toastify -->
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
 
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+      AOS.init();
     </script>
-    
+
     <!-- Mis script -->
     <script src="../js/main.js"></script>
     <script src="../js/products.js"></script>
-</body>
+  </body>
 </html>
