@@ -674,7 +674,7 @@ footer {
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-column-gap: 1rem;
   grid-row-gap: 2rem;
 }
@@ -956,6 +956,43 @@ footer {
   visibility: visible;
 }
 
+  /* Modal */
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark);
+    visibility: hidden;
+    z-index: 100;
+  }
+  
+  .modal-body {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: scroll;
+    z-index: 200;
+    transform: translateX(100%);
+  
+    background-color: var(--bg-cart);
+    padding: 2rem;
+  }
+
+  /* Clases para mostrar el modal */
+
+  .modal-overlay-visible {
+    visibility: visible;
+  }
+
+  .modal-open {
+    transform: translateX(0);
+  }
+
 @media screen and (min-width: 600px) {
   :root {
     --fs-200: 0.75rem;
@@ -1067,19 +1104,7 @@ footer {
     display: block;
   }
 
-  .product__onhover {
-    display: block;
-    max-height: 0;
-    transform: scaleY(0);
-    opacity: 0;
-    transition: max-height 0.2s, opacity 0.7s;
-  }
 
-  .product__show {
-    max-height: 120px;
-    transform: scaleY(100%);
-    opacity: 1;
-  }
 
   .cart-container {
     width: 30vw;
@@ -1191,6 +1216,47 @@ footer {
 
   .methods__icons :nth-child(6) {
     max-height: 75px;
+  }
+
+  /* Aplica a dispositivos con pantalla mayor a 600px que tengan cursor (es decir, que pueden hacer hover) */
+  @media (hover: hover) {
+
+    .modal-overlay-visible {
+      visibility: hidden;
+    }
+  
+    .modal-open {
+      transform: translateX(100%);
+    }
+
+    .product__onhover {
+      display: block;
+      max-height: 0;
+      transform: scaleY(0);
+      opacity: 0;
+      transition: max-height 0.2s, opacity 0.7s;
+    }
+  
+    .product__show {
+      max-height: 120px;
+      transform: scaleY(100%);
+      opacity: 1;
+    }
+  }
+
+  /* Aplica a dispositivos con pantalla mayor a 600px con pantalla táctil */
+  @media (hover: none) {
+    .modal-open {
+      transform: translateX(0);
+    }
+  
+    .modal-overlay-visible {
+      visibility: visible;
+    }
+
+    .product {
+      background-color: var(--bg-card);
+    }
   }
 }
 

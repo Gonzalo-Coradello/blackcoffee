@@ -10,6 +10,7 @@ async function obtenerProductos() {
   patisserie = productos.filter((prod) => prod.tipo === "patisserie");
   renderizarProductos();
   mostrarInfoHover();
+  // abrirModal();
 }
 
 obtenerProductos();
@@ -29,6 +30,7 @@ function renderizarProductos() {
   cafe.forEach((prod) => {
     const productoDOM = document.createElement("div");
     productoDOM.className = "product";
+    productoDOM.id = `product${prod.id}`;
     productoDOM.dataset.aos = "zoom-in";
     productoDOM.innerHTML = `<img src="${prod.foto}" alt="${prod.nombre}" class="product__img">
                                 <h4 class="product__title">${prod.nombre}</h4>
@@ -51,7 +53,18 @@ function renderizarProductos() {
                                         </div>
                                         <div class="row">
                                             <label for="unidades">Unidades</label>
-                                            <input type="number" name="unidades" id="unidadesCard${prod.id}" value="1" min="1" max="10" onKeyDown="return false"">
+                                            <select name="unidades" id="unidadesCard${prod.id}">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
                                         </div>
                                         <p class="product__precio">$${prod.precio}</p>
                                         <button type="submit" id="btn${prod.id}" class="product__btn btn">Agregar al carrito</button>
@@ -93,18 +106,21 @@ function renderizarProductos() {
       let productoCard = {
         ...prod, //spread operator
         id: prod.id + moliendaCard.value,
-        cantidad: parseInt(unidadesCard.value),
+        cantidad: unidadesCard.value,
         molienda: moliendaCard.value,
       };
 
       productos.push(productoCard);
       agregarAlCarrito(productoCard.id, productoCard.cantidad);
     });
+
+    abrirModal(productoDOM.id, prod.id);
   });
 
   patisserie.forEach((prod) => {
     const productoDOM = document.createElement("div");
     productoDOM.className = "product";
+    productoDOM.id = `product${prod.id}`;
     productoDOM.dataset.aos = "zoom-in";
     productoDOM.innerHTML = `<img src="${prod.foto}" alt="${prod.nombre}" class="product__img">
                                 <h4 class="product__title">${prod.nombre}</h4>
@@ -113,7 +129,18 @@ function renderizarProductos() {
                                 <div class="product__onhover">
                                     <form>
                                         <label for="unidades">Unidades</label>
-                                        <input type="number" name="unidades" id="unidadesCard${prod.id}" value="1" min="1" max="10" onKeyDown="return false"">
+                                        <select name="unidades" id="unidadesCard${prod.id}">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
                                         <p class="product__precio">$${prod.precio}</p>
                                         <button type="submit" id="btn${prod.id}" class="product__btn btn">Agregar al carrito</button>
                                     </form>
@@ -143,6 +170,8 @@ function renderizarProductos() {
       }).showToast();
       agregarAlCarrito(prod.id, parseInt(unidadesCard.value));
     });
+
+    abrirModal(productoDOM.id, prod.id);
   });
 }
 

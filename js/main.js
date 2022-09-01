@@ -41,6 +41,8 @@ const btnComprar = document.querySelector(".cart__main-button");
 const sinProductos = document.createElement("div");
 const provinciaSeleccionada = document.getElementById("provinciaInput");
 const botonCalcularEnvio = document.getElementById("botonCalcularEnvio");
+const modal = document.querySelector(".modal-body");
+const modalOverlay = document.querySelector(".modal-overlay");
 
 // Zonas para calcular el precio del envío (de más cercana a más lejana)
 const provincias1 = ["baires", "caba"];
@@ -117,3 +119,119 @@ function mostrarInfoHover() {
       });
     }
   }
+
+
+// Abrir modal
+// No se puede hacer hover en dispositivos con pantalla táctil, por lo que añado la opción de abrir un modal al tocar las cards
+// La función toma como parámetro el ID de la card y del producto, y renderiza la información dentro del modal.
+// Se añade una clase para que se abra el modal, pero esta clase sólo está disponible en dispositivos con pantalla táctil. 
+// Declaro las constantes molienda y unidades porque las tengo que añadir de forma condicional, según el tipo de producto. 
+function abrirModal (cardId, prodId) {
+  const productoCard = document.getElementById(cardId);
+  productoCard.addEventListener("click", () => {
+    const producto = productos.find(prod => prod.id === prodId);
+    
+    const molienda = `
+    <div class="row molienda">
+      <label for="molienda">Molienda</label>
+      <select name="molienda" id="molienda${producto.id}">
+          <option value="(grano)">Grano</option>
+          <option value="(moka)">Moka</option>
+          <option value="(chemex)">Chemex</option>
+          <option value="(prensa)">Prensa francesa</option>
+          <option value="(espresso)">Espresso</option>
+          <option value="(V60)">V60</option>
+          <option value="(cápsulas)">Cápsulas recargables</option>
+          <option value="(aeropress)">Aeropress</option>
+          <option value="(filtro)">Filtro</option>
+      </select>
+    </div>`;
+
+    const unidades = `<p class="product__unidades">x ${producto.unidades} unidades</p>`;
+
+    modal.innerHTML = `
+    <div class="product modal-product">
+      <div class="modal-close">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <img src="${producto.foto}" alt="${producto.nombre}" class="product__img">
+      <h4 class="product__title">${producto.nombre}</h4>
+      ${producto.tipo === "patisserie" ? unidades : ""}
+      <p class="product__info">${producto.info}</p>
+        <form>
+            ${producto.tipo === "café" ? molienda : ""}
+            <div class="row">
+                <label for="unidades">Unidades</label>
+                <select name="unidades" id="unidadesCard${producto.id}">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+            </div>
+            <p class="product__precio">$${producto.precio}</p>
+            <button type="submit" id="btn${producto.id}" class="product__btn btn">Agregar al carrito</button>
+        </form>
+      </div>
+    `
+    abrirCerrarModal();
+    document.querySelector(".modal-close").addEventListener("click", abrirCerrarModal);
+
+    const modalBtn = document.getElementById(`btn${producto.id}`);
+    const modalUnidades = document.getElementById(`unidadesCard${producto.id}`);
+    const modalMolienda = document.getElementById(`molienda${producto.id}`);
+
+    modalBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      Toastify({
+        text: "¡Producto añadido al carrito!",
+        duration: 2000,
+        gravity: "top",
+        position: "right",
+        offset: {
+          y: "5rem",
+        },
+        stopOnFocus: false,
+        className: "toast-agregar",
+        style: {
+          background: "rgba(0, 0, 0, 0.8)",
+          "box-shadow": "none",
+        },
+        onClick: () => {
+          abrirCerrarCarrito();
+        },
+      }).showToast();
+
+      if(producto.tipo === "café"){
+        let productoCard = {
+          ...producto, //spread operator
+          id: producto.id + modalMolienda.value,
+          cantidad: parseInt(modalUnidades.value),
+          molienda: modalMolienda.value,
+        };
+
+        productos.push(productoCard);
+        agregarAlCarrito(productoCard.id, productoCard.cantidad);
+      } else {
+        agregarAlCarrito(producto.id, parseInt(modalUnidades.value));
+      }
+      abrirCerrarModal();
+    });
+  });
+}
+
+const abrirCerrarModal = () => {
+  if(modal.classList.contains("modal-open")) {
+    modal.classList.remove("modal-open");
+    modalOverlay.classList.remove("modal-overlay-visible");
+  } else {
+    modal.classList.add("modal-open");
+    modalOverlay.classList.add("modal-overlay-visible");
+  }
+}
