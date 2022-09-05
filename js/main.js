@@ -9,8 +9,8 @@
 
 // NOTA
 // Este archivo .js está linkeado a ambos HTML, es código que se utilizará para ambas páginas.
-// Contiene las variables y las funcionalidades que son más generales o principalmente estéticas.s
-// La funcionalidad de e-commerce está en products.js
+// Contiene las variables y las funcionalidades que son más generales o principalmente estéticas.
+// La funcionalidad de e-commerce está en products.js y aplica a products.html
 
 // =========================================================================== //
 
@@ -160,7 +160,7 @@ function abrirModal (cardId, prodId) {
       <p class="product__info">${producto.info}</p>
         <form>
             ${producto.tipo === "café" ? molienda : ""}
-            <div class="row">
+            <div class="row unidades">
                 <label for="unidades">Unidades</label>
                 <select name="unidades" id="unidadesCard${producto.id}">
                   <option value="1">1</option>

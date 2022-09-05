@@ -51,7 +51,7 @@ function renderizarProductos() {
                                                 <option value="(filtro)">Filtro</option>
                                             </select>
                                         </div>
-                                        <div class="row">
+                                        <div class="row unidades">
                                             <label for="unidades">Unidades</label>
                                             <select name="unidades" id="unidadesCard${prod.id}">
                                                 <option value="1">1</option>
@@ -106,7 +106,7 @@ function renderizarProductos() {
       let productoCard = {
         ...prod, //spread operator
         id: prod.id + moliendaCard.value,
-        cantidad: unidadesCard.value,
+        cantidad: parseInt(unidadesCard.value),
         molienda: moliendaCard.value,
       };
 
@@ -128,19 +128,21 @@ function renderizarProductos() {
                                 <p class="product__body">${prod.info}</p>
                                 <div class="product__onhover">
                                     <form>
-                                        <label for="unidades">Unidades</label>
-                                        <select name="unidades" id="unidadesCard${prod.id}">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
+                                        <div class="row unidades">
+                                          <label for="unidades">Unidades</label>
+                                          <select name="unidades" id="unidadesCard${prod.id}">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                          </select>
+                                        </div>
                                         <p class="product__precio">$${prod.precio}</p>
                                         <button type="submit" id="btn${prod.id}" class="product__btn btn">Agregar al carrito</button>
                                     </form>
@@ -347,6 +349,13 @@ const comprar = () => {
     carrito = [];
     actualizarCarrito();
   } else {
+    Swal.fire({
+      icon: "error",
+      text: "Debes seleccionar una provincia y calcular el envío",
+      confirmButtonColor: "#171717",
+      allowEscapeKey: "true"
+    });
     provinciaSeleccionada.classList.add("error");
+
   }
 };

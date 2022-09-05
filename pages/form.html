@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Finalizá tu compra! | Black Coffee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;500;600&family=Roboto:wght@100;300;500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/5cf2c2763c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+    <main class="formulario-compra">
+        <div class="form-container">
+            <div class="pedido">
+                <h2>Detalles de tu compra</h2>
+                <div class="form__products">
+                <!-- Aquí los detalles del pedido -->
+                    <div class="form__product form-row">
+                        <h4>Waffle belga x2</h4>
+                        <h4>$880</h4>
+                    </div>
+                    <div class="form__product form-row">
+                        <h4>Blend Especial (moka) x1</h4>
+                        <h4>$3200</h4>
+                    </div>
+                </div>
+                <div class="form__price">
+                    <div class="form-row">
+                        <h4>Subtotal</h4>
+                        <h4>$4080</h4>
+                    </div>
+                    <div class="form-row">
+                        <h4>Envío</h4>
+                        <h4>0</h4>
+                    </div>
+                    <div class="form-row">
+                        <h4>Total</h4>
+                        <h4>$4080</h4>
+                    </div>
+                </div>
+            </div>
+            <form class="form">
+                <div class="form-grid">
+                    <div class="form__child">
+                        <div class="form__field">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+                    <div class="form__child">
+                        <div class="form__field">
+                            <label for="dni">DNI</label>
+                            <input type="number" required>
+                        </div>
+                    </div>
+                    <div class="form__child">
+                        <div class="form__field">
+                            <label for="email">Email</label>
+                            <input type="email" required>
+                        </div>
+                    </div>
+                    <div class="form__child">
+                        <div class="form__field">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" required>
+                        </div>
+                    </div>
+                    <div class="form__child">
+                        <div class="form__field">
+                            <label for="direccion">Dirección</label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+                    <div class="form__child">
+                        <div class="form__field">
+                            <label for="tarjeta">Tarjeta</label>
+                            <input type="number" required>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="form__submit btn">Finalizar compra</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

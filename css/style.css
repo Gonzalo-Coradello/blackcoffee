@@ -60,7 +60,6 @@ body {
 .product__title,
 .methods__title,
 .products-hero__title,
-.unidades,
 .product__precio,
 .products-secondary__title,
 .contact__title,
@@ -75,6 +74,12 @@ body {
 .nav {
   font-size: var(--fs-500);
   text-transform: lowercase;
+}
+
+button {
+  font-size: var(--fs-400);
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-normal);
 }
 
 .slogan {
@@ -156,7 +161,7 @@ body {
 
 .cart__main-text {
   font-weight: var(--fw-primary);
-  font-size: var(--fs-500);
+  font-size: var(--fs-600);
 }
 
 .cart {
@@ -184,8 +189,21 @@ input {
   font-size: var(--fs-200);
 }
 
+.cart__button {
+  font-size: var(--fs-cart);
+}
+
 .cart__main-button {
+  font-size: var(--fs-600);
+}
+
+.modal .product {
   font-size: var(--fs-400);
+}
+
+.modal button,
+.modal .product__title {
+  font-size: var(--fs-500);
 }
 
 /* Restart y estilos generales */
@@ -196,6 +214,10 @@ input {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -245,9 +267,6 @@ section + section {
 button {
   border: none;
   cursor: pointer;
-  font-size: var(--fs-300);
-  font-family: var(--ff-primary);
-  font-weight: var(--fw-normal);
   background-color: var(--clr-secondary);
   color: var(--clr-dark);
   -webkit-appearance: none;
@@ -739,17 +758,18 @@ footer {
 .product__img,
 .product__title,
 .product__body,
+.product__info,
 .product__molienda,
 .product__unidades,
 .precio,
 .product__precio {
-  margin-bottom: 1em;
+  margin-bottom: .5rem;
 }
 
 .product__precio {
   display: block;
   position: relative;
-  margin-block: 0.5em;
+  margin-block: .75rem;
   max-width: fit-content;
   margin-inline: auto;
 }
@@ -772,9 +792,20 @@ footer {
   left: 2.8em;
 }
 
+.molienda {
+  margin-bottom: 0.5rem;
+}
+
+.unidades select {
+  width: 100%;
+}
+
+.product__info {
+  max-width: 40ch;
+}
+
 .product__btn {
   display: block;
-  max-width: fit-content;
   margin-inline: auto;
 }
 
@@ -804,15 +835,21 @@ footer {
   overflow-y: scroll;
   z-index: 200;
   transform: translateX(100%);
+  transition: all .3s;
 
   background-color: var(--bg-cart);
   padding: 2rem;
 }
 
-.cart__close {
+.cart__title {
+  margin-top: .2rem;
+}
+
+.cart__close, .modal-close {
   font-size: 1.5em;
   color: var(--clr-primary);
   cursor: pointer;
+  margin-top: -.4rem;
 }
 
 .cart-row {
@@ -902,13 +939,18 @@ footer {
 .cart__button {
   padding: 0.2rem 0.5rem;
   border-radius: 0;
+  line-height: 1;
+  height: 1.5rem;
 }
 
 #provinciaInput {
-  padding-block: 0.15rem;
+  padding-block: 0.2rem;
+  padding-inline: .2rem;
   cursor: pointer;
   transition: all 200ms;
   border-width: 0.5px;
+  line-height: 1;
+  height: 1.5rem;
 }
 
 #provinciaInput:hover {
@@ -961,7 +1003,7 @@ footer {
   .modal-overlay {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0%;
     width: 100%;
     height: 100%;
     background-color: var(--bg-dark);
@@ -972,15 +1014,41 @@ footer {
   .modal-body {
     position: fixed;
     top: 0;
-    right: 0;
-    width: 100%;
+    left: 50%;
+    width: 80%;
+    max-width: 600px;
     max-height: 100%;
     overflow-y: scroll;
     z-index: 200;
     transform: translateX(100%);
   
     background-color: var(--bg-cart);
-    padding: 2rem;
+    padding: 0;
+  }
+
+  .modal-close {
+    margin-block: .5rem;
+  }
+
+  .modal .product__img {
+    max-width: 40%;
+  }
+
+  .modal .product__precio {
+    margin-top: .7rem;
+    margin-bottom: .7rem;
+  }
+
+  .modal button {
+    margin-bottom: 1rem;
+  }
+
+  .modal .product__title {
+    margin-block: .5rem;
+  }
+
+  .product__info {
+    margin-bottom: 1.25rem;
   }
 
   /* Clases para mostrar el modal */
@@ -990,7 +1058,79 @@ footer {
   }
 
   .modal-open {
-    transform: translateX(0);
+    transform: translateX(-50%);
+  }
+
+  /* Formulario */
+
+  .form-container {
+    width: 100%;
+    max-width: 700px;
+    margin-inline: auto;
+    margin-top: 2rem;
+    background: var(--bg-dark);
+    padding-block: 2rem;
+  }
+
+  .pedido {
+    padding: 1rem;
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    padding: 2.5rem;
+    width: 100%;
+    margin-inline: auto;
+    justify-content: center;
+  }
+
+  .form__child {
+    display: flex;
+    justify-content: center;
+  }
+
+  .form__field {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 230px;
+  }
+
+  .form__child label {
+    min-width: max-content;
+  }
+
+  .form__field input {
+    padding: .2rem;
+    border: 1px solid var(--clr-primary);
+  }
+
+  .form__field input:focus {
+    outline: none;
+  }
+
+  .form__submit {
+    width: max-content;
+    display: block;
+    margin-inline: auto;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
   }
 
 @media screen and (min-width: 600px) {
@@ -998,8 +1138,8 @@ footer {
     --fs-200: 0.75rem;
     /* 12px */
 
-    --fs-cart: 0.9375rem;
-    /* 15px */
+    --fs-cart: 1rem;
+    /* 16px */
 
     --fs-300: 0.875rem;
     /* 14px */
@@ -1012,6 +1152,11 @@ footer {
 
     --fs-600: 1.875rem;
     /* 30px */
+  }
+
+  .cart__main-button,
+  .cart__main-text {
+    font-size: var(--fs-500);
   }
 
   .nav {
@@ -1116,10 +1261,6 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 1.5rem;
     grid-row-gap: 2rem;
-  }
-
-  .molienda {
-    margin-bottom: 0.5rem;
   }
 
   .product__precio {
@@ -1238,7 +1379,7 @@ footer {
     }
   
     .product__show {
-      max-height: 120px;
+      max-height: 140px;
       transform: scaleY(100%);
       opacity: 1;
     }
@@ -1246,8 +1387,13 @@ footer {
 
   /* Aplica a dispositivos con pantalla mayor a 600px con pantalla táctil */
   @media (hover: none) {
+
+    .modal-body {
+      left: 50%;
+    }
+
     .modal-open {
-      transform: translateX(0);
+      transform: translateX(-50%);
     }
   
     .modal-overlay-visible {
@@ -1256,6 +1402,19 @@ footer {
 
     .product {
       background-color: var(--bg-card);
+    }
+
+    .modal, .modal button {
+      font-size: var(--fs-400);
+    }
+
+    .modal .product__img {
+      max-width: 35%;
+    }
+
+    .modal .product__precio {
+      font-size: var(--fs-300);
+      margin-block: 1rem;
     }
   }
 }
