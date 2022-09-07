@@ -22,75 +22,93 @@
     <main class="formulario-compra">
         <div class="form-container">
             <div class="pedido">
-                <h2>Detalles de tu compra</h2>
+                <a href="./products.html" class="form__volver"><i class="fa-solid fa-arrow-left"></i></a>
+                <h2 class="form__title">Detalles de tu compra</h2>
+                <div class="form-row">
+                    <h4 class="form__subtitle">Producto</h4>
+                    <h4 class="form__subtitle">Subtotal</h4>
+                </div>
                 <div class="form__products">
                 <!-- Aquí los detalles del pedido -->
-                    <div class="form__product form-row">
-                        <h4>Waffle belga x2</h4>
-                        <h4>$880</h4>
-                    </div>
-                    <div class="form__product form-row">
-                        <h4>Blend Especial (moka) x1</h4>
-                        <h4>$3200</h4>
-                    </div>
+                    
                 </div>
                 <div class="form__price">
                     <div class="form-row">
-                        <h4>Subtotal</h4>
-                        <h4>$4080</h4>
+                        <h4 class="form__price-primary">Subtotal</h4>
+                        <h4 id="formPrecio" class="form__price-secondary">$4080</h4>
                     </div>
                     <div class="form-row">
-                        <h4>Envío</h4>
-                        <h4>0</h4>
+                        <h4 class="form__price-primary">Envío</h4>
+                        <h4 id="formEnvio" class="form__price-secondary">0</h4>
                     </div>
-                    <div class="form-row">
-                        <h4>Total</h4>
-                        <h4>$4080</h4>
+                    <div class="form-row form__total">
+                        <h4 class="form__price-primary">Total</h4>
+                        <h4 id="formTotal" class="form__price-secondary">$4080</h4>
                     </div>
                 </div>
             </div>
             <form class="form">
                 <div class="form-grid">
                     <div class="form__child">
-                        <div class="form__field">
+                        <div class="form__field form__field-nombre">
                             <label for="nombre">Nombre</label>
-                            <input type="text" required>
+                            <input id="inputNombre" type="text" required placeholder="" minlength="3">
                         </div>
                     </div>
                     <div class="form__child">
-                        <div class="form__field">
+                        <div class="form__field form__field-dni">
                             <label for="dni">DNI</label>
-                            <input type="number" required>
+                            <input id="inputDni" type="tel" required placeholder="" minlength="8">
                         </div>
                     </div>
                     <div class="form__child">
-                        <div class="form__field">
+                        <div class="form__field form__field-email">
                             <label for="email">Email</label>
-                            <input type="email" required>
+                            <input id="inputEmail" type="email" required placeholder="">
                         </div>
                     </div>
                     <div class="form__child">
-                        <div class="form__field">
+                        <div class="form__field form__field-tel">
                             <label for="telefono">Teléfono</label>
-                            <input type="tel" required>
+                            <input id="inputTel" type="tel" required placeholder="" minlength="6">
                         </div>
                     </div>
                     <div class="form__child">
-                        <div class="form__field">
-                            <label for="direccion">Dirección</label>
-                            <input type="text" required>
+                        <div class="form__field form__field-calle">
+                            <label for="calle">Calle</label>
+                            <input id="inputCalle" type="text" required placeholder="" minlength="6">
                         </div>
                     </div>
                     <div class="form__child">
-                        <div class="form__field">
+                        <div class="form__field form__field-numero">
+                            <label for="numero">Número</label>
+                            <input type="tel" id="inputNumero" required>
+                        </div>
+                    </div>
+                    <div class="form__child">
+                        <div class="form__field form__field-cpostal">
+                            <label for="cpostal">Código<br>postal</label>
+                            <input type="tel" id="inputCPostal" required>
+                        </div>
+                    </div>
+                    <div class="form__child">
+                        <div class="form__field form__field-tarjeta">
                             <label for="tarjeta">Tarjeta</label>
-                            <input type="number" required>
+                            <input id="inputTarjeta" type="tel" required placeholder="" minlength="16" maxlength="16">
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="form__submit btn">Finalizar compra</button>
+                <button type="button" class="form__submit btn">Finalizar compra</button>
             </form>
         </div>
     </main>
+
+    
+    <!-- Sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Mis script -->
+    <script src="../js/main.js"></script>
+    <!-- <script src="../js/products.js"></script> -->
 </body>
 </html>

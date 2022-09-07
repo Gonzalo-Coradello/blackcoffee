@@ -1,4 +1,4 @@
-// Este .js está linkeado a products.html y contiene las funcionalidades del e-commerce y el trabajo con el DOM.
+// Este .js está linkeado a products.html y contiene las funcionalidades principales del e-commerce.
 
 // Fetch para solicitar los datos de products.json.
 async function obtenerProductos() {
@@ -6,21 +6,30 @@ async function obtenerProductos() {
   const resp = await fetch(URLJSON);
   const data = await resp.json();
   productos = data;
-  cafe = productos.filter((prod) => prod.tipo === "café");
+  cafe = productos.filter((prod) => prod.tipo === "café"); // Se filtra por tipo de producto.
   patisserie = productos.filter((prod) => prod.tipo === "patisserie");
   renderizarProductos();
   mostrarInfoHover();
-  // abrirModal();
 }
 
 obtenerProductos();
 
 // Storage (retoma la última información guardada en el carrito)
+// Cuando realizamos una compra, se genera un item "compraRealizada" en el localStorage. Esto es para reiniciar el carrito luego de cada compra.
+
 document.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("carrito")) {
+
+  if(localStorage.getItem("compraRealizada")) {
+    carrito = [];
+    actualizarCarrito();
+    localStorage.removeItem("compraRealizada") // Se remueve el item para que el localStorage siga funcionando de manera normal.
+  }
+
+  else if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
     actualizarCarrito();
   }
+  localStorage.getItem("envioActual");
 });
 
 
@@ -100,7 +109,7 @@ function renderizarProductos() {
       }).showToast();
 
       // Se crea un producto nuevo tomando la información seleccionada en los input —cantidad y molienda— y se concatena la molienda al ID
-      // para que se diferencien entre sí como productos diferentes (id: 1(grano), id: 1(moka), etc.).
+      // para que se diferencien entre sí como productos diferentes (id: 1(grano), id: 1(filtro), etc.).
       // Se agrega el producto con la molienda seleccionada al array de productos y se envía como parámetro a la función agregarAlCarrito.
 
       let productoCard = {
@@ -114,7 +123,7 @@ function renderizarProductos() {
       agregarAlCarrito(productoCard.id, productoCard.cantidad);
     });
 
-    abrirModal(productoDOM.id, prod.id);
+    abrirModal(productoDOM.id, prod.id); // Esta función es para dispositivos con pantalla táctil (ver main.js)
   });
 
   patisserie.forEach((prod) => {
@@ -282,6 +291,7 @@ const actualizarCarrito = () => {
 
   // Guardar la información del carrito en el localStorage
   localStorage.setItem("carrito", JSON.stringify(carrito));
+  localStorage.setItem("subtotalStorage", subtotal.innerHTML);
 };
 
 
@@ -300,18 +310,21 @@ const calcularEnvio = (provincia) => {
     envioCalculado = true;
     provinciaSeleccionada.classList.remove("error");
 
-    provincias1.forEach((prov) => {provincia == prov && (envio.innerText = 650)}); // Operador lógico AND
-    provincias2.forEach((prov) => {provincia == prov && (envio.innerText = 770)});
-    provincias3.forEach((prov) => {provincia == prov && (envio.innerText = 890)});
-    provincias4.forEach((prov) => {provincia == prov && (envio.innerText = 1010)});
-    provincias5.forEach((prov) => {provincia == prov && (envio.innerText = 1130)});
+    provincias1.forEach((prov) => {provincia == prov && (envioActual = 650)}); // Operador lógico AND
+    provincias2.forEach((prov) => {provincia == prov && (envioActual = 770)});
+    provincias3.forEach((prov) => {provincia == prov && (envioActual = 890)});
+    provincias4.forEach((prov) => {provincia == prov && (envioActual = 1010)});
+    provincias5.forEach((prov) => {provincia == prov && (envioActual = 1130)});
 
     if (subtotal.innerHTML >= 4000) {
-      envio.innerText = 0;
+      envioActual = 0;
       cartelEnvio.innerHTML = "¡Genial! <span>Tenés envío gratis</span>";
     } else {
       cartelEnvio.innerText = "Envío gratis superando los $4000.";
     }
+
+    envio.innerText = envioActual;
+    localStorage.setItem("envio", envioActual);
 
     total.innerText = parseFloat(subtotal.innerHTML) + parseFloat(envio.innerHTML);
   } else {
@@ -321,10 +334,9 @@ const calcularEnvio = (provincia) => {
 };
 
 
-// Realizar compra
-// Se cierra el carrito y se muestra una alerta.
-// Luego se guarda la información de la compra en el localStorage y se vacía el carrito.
+// Iniciar compra
 // Permite hacer la compra sólo si se ha seleccionado una provincia en el input.
+// Redirige a la página form.html para rellenar los datos y finalizar la compra. (main.js, líneas 83-312).
 btnComprar.addEventListener("click", () => {
   comprar();
 });
@@ -332,22 +344,8 @@ btnComprar.addEventListener("click", () => {
 const comprar = () => {
   if (envioCalculado) {
     abrirCerrarCarrito();
-
-    Swal.fire({
-      icon: "success",
-      title: "¡Que lo disfrutes!",
-      text: "Compra realizada exitosamente",
-      showConfirmButton: false,
-      timer: 2500,
-    });
-
-    let ultimaCompra = carrito;
-    localStorage.setItem(
-      "Última compra realizada",
-      JSON.stringify(ultimaCompra)
-    );
-    carrito = [];
-    actualizarCarrito();
+    window.location.href = "./form.html";
+   
   } else {
     Swal.fire({
       icon: "error",
@@ -356,6 +354,5 @@ const comprar = () => {
       allowEscapeKey: "true"
     });
     provinciaSeleccionada.classList.add("error");
-
   }
 };

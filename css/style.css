@@ -66,7 +66,9 @@ body {
 .cart__title,
 .cart__button,
 .cart__heading,
-.cart__product-price {
+.cart__product-price,
+.form__title,
+.form__subtitle {
   font-family: var(--ff-heading);
   text-transform: uppercase;
 }
@@ -84,7 +86,6 @@ button {
 
 .slogan {
   font-size: clamp(1rem, 2.6vw, 1.75rem);
-  /* font-size: var(--fs-600); */
   font-weight: var(--fw-thin);
 }
 
@@ -138,7 +139,6 @@ button {
 .products-hero__title {
   font-weight: var(--fw-thin);
   font-size: clamp(0.85rem, 3vw, 1.6rem);
-  /* font-size: var(--fs-600); */
 }
 
 .products-sign {
@@ -159,7 +159,7 @@ button {
   font-size: var(--fs-300);
 }
 
-.cart__main-text {
+.cart__main-text{
   font-weight: var(--fw-primary);
   font-size: var(--fs-600);
 }
@@ -172,11 +172,15 @@ button {
   font-weight: var(--fw-normal);
 }
 
-.cart__product-title {
+.cart__product-title, 
+.form__product-title,
+.form__price-primary {
   font-weight: var(--fw-normal);
 }
 
-.cart__product-price {
+.cart__product-price, 
+.form__product-price,
+.form__price-secondary {
   font-weight: var(--fw-primary);
 }
 
@@ -193,7 +197,8 @@ input {
   font-size: var(--fs-cart);
 }
 
-.cart__main-button {
+.cart__main-button,
+.form__submit {
   font-size: var(--fs-600);
 }
 
@@ -205,6 +210,24 @@ input {
 .modal .product__title {
   font-size: var(--fs-500);
 }
+
+.formulario-compra {
+  font-size: var(--fs-cart);
+  font-weight: var(--fw-light);
+}
+
+.form__title {
+  font-size: var(--fs-500);
+}
+
+.form__subtitle {
+  font-size: var(--fs-400);
+}
+
+.form__total {
+  font-size: var(--fs-500);
+}
+
 
 /* Restart y estilos generales */
 
@@ -1013,7 +1036,7 @@ footer {
   
   .modal-body {
     position: fixed;
-    top: 0;
+    top: 8%;
     left: 50%;
     width: 80%;
     max-width: 600px;
@@ -1066,26 +1089,47 @@ footer {
   .form-container {
     width: 100%;
     max-width: 700px;
+    min-height: 100vh;
     margin-inline: auto;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     background: var(--bg-dark);
-    padding-block: 2rem;
+    padding-bottom: 2rem;
   }
 
   .pedido {
-    padding: 1rem;
+    padding: 2rem;
+    background-color: var(--bg-dark);
+  }
+
+  .form__volver {
+    display: block;
+    width: fit-content;
+    margin-bottom: 1rem;
+  }
+
+  .form__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .form__price {
+    background-color: var(--bg-cart-secondary);
+    border-radius: 1rem;
+    padding-block: .2rem;
+    margin-top: 1rem;
   }
 
   .form-row {
     display: flex;
     justify-content: space-between;
+    margin-inline: 1rem;
+    margin-block: .5rem;
   }
 
   .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
+    grid-row-gap: 2.3rem;
     padding: 2.5rem;
     width: 100%;
     margin-inline: auto;
@@ -1110,6 +1154,7 @@ footer {
 
   .form__field input {
     padding: .2rem;
+    max-height: 1.5rem;
     border: 1px solid var(--clr-primary);
   }
 
@@ -1122,6 +1167,116 @@ footer {
     display: block;
     margin-inline: auto;
   }
+
+  .form__price-secondary::before {
+    content: "$";
+  }
+
+  .form__field-cpostal label {
+    transform: translateY(-.75rem);
+  }
+
+  
+/* .form__field input:invalid {
+  border-color: #B00;
+}
+
+.form__field input:placeholder-shown {
+  border-color: var(--clr-primary);
+} */
+
+/* .form__field input:focus {
+  border-color: yellow;
+} */
+
+/* .form__field input:valid {
+  border-color: var(--clr-primary);
+} */
+
+.form__field {
+  position: relative;
+}
+
+.errorVacio::after,
+.errorNombre::after,
+.errorDni::after,
+.errorEmail::after,
+.errorTel::after,
+.errorNumero::after,
+.errorCPostal::after,
+.errorTarjeta::after {
+  color: #B00;
+  position: absolute;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-200);
+  top: 1.5rem;
+  left: 10%;
+  width: max-content;
+  /* max-width: 30ch; */
+}
+
+.errorVacio::after {
+  content: "* Debes completar este campo";
+}
+
+.errorNombre::after {
+  content: "* Ingrese un nombre válido";
+}
+
+.errorDni::after {
+  content: "* Ingrese un DNI válido";
+}
+
+.errorEmail::after {
+  content: "* Ingrese una dirección de correo válida";
+}
+
+.errorTel::after {
+  content: "* Ingrese un número de teléfono válido";
+}
+
+.errorNumero::after {
+  content: "* Ingrese un número";
+}
+
+.errorCPostal::after {
+  content: "* Ingrese un código postal válido";
+  top: 2rem;
+}
+
+.errorTarjeta::after {
+  content: "* Debe contener 16 caracteres numéricos";
+}
+
+
+
+/* 
+
+.form__field {
+  position: relative;
+}
+
+.form__x {
+  color: #B00;
+  position: absolute;
+  right: -9%;
+  top: 20%;
+}
+
+.form__check {
+  color: #0b0;
+  position: absolute;
+  right: -9%;
+  top: 20%;
+} */
+
+/* .form__field input:not(:focus) {
+  border-color: var(--clr-primary);
+} */
+
+
+
+
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
@@ -1155,7 +1310,8 @@ footer {
   }
 
   .cart__main-button,
-  .cart__main-text {
+  .cart__main-text,
+  .form__submit {
     font-size: var(--fs-500);
   }
 
