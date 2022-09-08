@@ -69,6 +69,8 @@ const contenedorCalle = document.querySelector(".form__field-calle");
 const contenedorNumero = document.querySelector(".form__field-numero");
 const contenedorCPostal = document.querySelector(".form__field-cpostal");
 const contenedorTarjeta = document.querySelector(".form__field-tarjeta");
+const hamburger = document.querySelectorAll(".hamburger");
+const navMenu = document.querySelectorAll(".nav__list");
 let envioActual;
 let compraRealizada = false;
 
@@ -496,3 +498,14 @@ const abrirCerrarModal = () => {
     modalOverlay.classList.add("modal-overlay-visible");
   }
 }
+
+
+hamburger.forEach(item => item.addEventListener("click", () => {
+  item.classList.toggle("active");
+  navMenu.forEach(nav => nav.classList.toggle("active"));
+}))
+
+document.querySelectorAll(".nav__link").forEach(link => link.addEventListener("click", () => {
+  hamburger.forEach(item =>  item.classList.remove("active"));
+  navMenu.forEach(nav => nav.classList.remove("active"));
+}))
