@@ -1156,7 +1156,7 @@ footer {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 230px;
+  max-width: 280px;
 }
 
 .form__child label {
