@@ -25,6 +25,8 @@ let productos = [];
 let carrito = [];
 let cafe = [];
 let patisserie = [];
+let envioActual;
+let compraRealizada = false;
 
 const cart = document.querySelector(".cart-container");
 const cartOverlay = document.querySelector(".cart-overlay");
@@ -71,8 +73,6 @@ const contenedorCPostal = document.querySelector(".form__field-cpostal");
 const contenedorTarjeta = document.querySelector(".form__field-tarjeta");
 const hamburger = document.querySelectorAll(".hamburger");
 const navMenu = document.querySelectorAll(".nav__list");
-let envioActual;
-let compraRealizada = false;
 
 // Zonas para calcular el precio del envío (de más cercana a más lejana)
 const provincias1 = ["baires", "caba"];
@@ -298,17 +298,11 @@ if(formSubmit != null) {
         timer: 2500,
       })
 
-      // Creo un item en el localStorage que se utiliza para vaciar el carrito desde el otro archivo de JavaScript (ver products.js, línea 20)
+      // Creo un item en el localStorage que se utiliza para vaciar el carrito desde el otro archivo de JavaScript (ver products.js, línea 18)
       setTimeout(() => {
         localStorage.setItem("compraRealizada", compraRealizada);
         window.location.href = "./products.html";
       }, 2500);
-
-      let ultimaCompra = carrito;
-      localStorage.setItem(
-      "Última compra realizada",
-      JSON.stringify(ultimaCompra)
-      );
     }     
   })
 }
@@ -489,6 +483,7 @@ function abrirModal (cardId, prodId) {
   });
 }
 
+// Abrir y cerrar el modal
 const abrirCerrarModal = () => {
   if(modal.classList.contains("modal-open")) {
     modal.classList.remove("modal-open");
@@ -500,6 +495,7 @@ const abrirCerrarModal = () => {
 }
 
 
+// Menú hamburguesa, para dispositivos con pantallas menores a 600px.
 hamburger.forEach(item => item.addEventListener("click", () => {
   item.classList.toggle("active");
   navMenu.forEach(nav => nav.classList.toggle("active"));

@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     carrito = JSON.parse(localStorage.getItem("carrito"));
     actualizarCarrito();
   }
-  localStorage.getItem("envioActual");
 });
 
 
@@ -286,8 +285,7 @@ const actualizarCarrito = () => {
   subtotal.innerHTML = carrito.reduce((acc, prod) => acc + prod.precioTotal, 0);
 
   // Sumarle el envío
-  total.innerText =
-    parseFloat(subtotal.innerHTML) + parseFloat(envio.innerHTML);
+  total.innerText = parseFloat(subtotal.innerHTML) + parseFloat(envio.innerHTML);
 
   // Guardar la información del carrito en el localStorage
   localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -336,7 +334,7 @@ const calcularEnvio = (provincia) => {
 
 // Iniciar compra
 // Permite hacer la compra sólo si se ha seleccionado una provincia en el input.
-// Redirige a la página form.html para rellenar los datos y finalizar la compra. (main.js, líneas 83-312).
+// Redirige a la página form.html para rellenar los datos y finalizar la compra. (main.js, líneas 85-308).
 btnComprar.addEventListener("click", () => {
   comprar();
 });
