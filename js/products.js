@@ -21,14 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if(localStorage.getItem("compraRealizada")) {
     carrito = [];
-    actualizarCarrito();
     localStorage.removeItem("compraRealizada") // Se remueve el item para que el localStorage siga funcionando de manera normal.
   }
 
   else if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
-    actualizarCarrito();
   }
+
+  actualizarCarrito();
 });
 
 
