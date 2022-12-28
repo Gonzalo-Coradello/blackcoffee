@@ -284,6 +284,7 @@ button {
   color: var(--clr-dark);
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 
   transition: background-color 250ms ease-in-out;
 }
@@ -1241,8 +1242,30 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.slogan,
+.lines,
+.logo,
+.products-hero__title,
+.lines-prod {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1200ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+  animation-delay: 350ms;
+}
+
+.logo {
+  animation-delay: 1000ms;
+}
 
 @media screen and (min-width: 410px) and (max-width: 599px) {
   .hero {
