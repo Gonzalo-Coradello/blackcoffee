@@ -1,8 +1,7 @@
 # BLACKCOFFEE
 ## _E-commerce_
 
-_[en]_ E-commerce for BLACKCOFFEE, high quality coffee roasters. Their mission is that you can enjoy the best coffee from the comfort of your home. 
-
+_[en]_ E-commerce for BLACKCOFFEE, high quality coffee roasters. Their mission is that you can enjoy the best coffee from the comfort of your home.  
 _[es]_ E-commerce de BLACKCOFFEE, tostadores de café de alta calidad. Su misión es que puedas disfrutar del mejor café en la comodidad de tu hogar.  
 
 ## Features:
@@ -32,8 +31,8 @@ _[es]_ E-commerce de BLACKCOFFEE, tostadores de café de alta calidad. Su misió
 [BLACKCOFFEE](https://blackcoffee-store.netlify.app/)
 
 ## Credits
-_[en]_ Branding, logo and design: Talia Laborde
-_[es]_ Diseño, branding y diseño: Talia Laborde
+_[en]_ Branding, logo and design: [Talia Laborde](https://www.linkedin.com/in/talia-laborde/)  
+_[es]_ Diseño, branding y logo: [Talia Laborde](https://www.linkedin.com/in/talia-laborde/)
 
 ## Screeenshots
 ![](https://github.com/Gonzalo-Coradello/blackcoffee/blob/main/screenshots/blackcoffee.jpg)
