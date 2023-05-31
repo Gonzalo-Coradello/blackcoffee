@@ -903,6 +903,8 @@ footer {
   display: flex;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
+  align-items: center;
+  gap: .5rem;
 }
 
 .cart__envio {
@@ -921,6 +923,10 @@ footer {
 
 .cart__trash {
   margin-left: 0.5rem;
+}
+
+.icon-cantidad {
+  font-size: 12px;
 }
 
 .cart__trash,
@@ -971,7 +977,6 @@ footer {
 .cart__button {
   padding: 0.2rem 0.5rem;
   border-radius: 0;
-  line-height: 1;
   height: 1.5rem;
 }
 
